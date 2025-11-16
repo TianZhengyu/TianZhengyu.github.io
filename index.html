@@ -342,7 +342,9 @@
               <strong> Traditional backbone networks have limitations in modeling intra-modal long-range dependencies and inter-modal correlations.</strong>
             </p>
             <p>
-              <strong>Our Approach:</strong> 这里概括 MBiM 的核心设计，例如基于 BiMamba 的时间序列建模机制、模态内与模态间双向结构，以及如何在统一框架中对多种生理模态进行对齐与融合，从而更充分地利用 EEG、EOG、ECG 等模态中互补的情感相关信息。
+              <strong>Our Approach:</strong>
+              Mamba’s selective input mechanism efficiently models long-range dependencies, and its explicit global state variables as part of its state space model (SSM) capture inter-modal correlations simultaneously, thereby effectively addressing the first challenge.
+              <strong> We design a multimodal BiMamba network, where the intra-modal BiMamba module models long-range dependencies within modalities, and the inter-modal BiMamba module captures inter-modal correlations.</strong>
             </p>
           </div>
         </div>
@@ -366,7 +368,9 @@
               <strong> Existing methods mainly focus on training-phase strategies to deal with the missing data problem.</strong>
             </p>
             <p>
-              <strong>Our Approach:</strong> 这里概括 MMTTA 的关键思想，包括基于两级熵的样本筛选策略、如何优先选择分布偏移较弱且信息较完整的样本进行更新，以及利用跨模态互信息共享在模态间传播可靠信息，从而实现更加平滑稳健的测试时适应，在缺失模态场景下仍保持良好的情感识别性能。
+              <strong>Our Approach:</strong>
+              TTA requires only minimal parameter fine-tuning to mitigate distribution shifts, thus resolving the second challenge.
+              <strong> We propose a multimodal TTA method that alleviates the negative impact of amplified distribution shifts caused by missing multimodal data on model performance.</strong>
             </p>
           </div>
         </div>
