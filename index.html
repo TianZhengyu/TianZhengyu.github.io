@@ -119,11 +119,9 @@
       box-shadow:inset 0 -6px 18px rgba(0,0,0,0.03);
     }
     .pdf-frame-wide{
-      /* module-all.pdf：横向结构，稍矮一点 */
       height:480px;
     }
     .pdf-frame-tall{
-      /* poster.pdf：纵向较长，给更大高度 */
       height:680px;
     }
 
@@ -263,7 +261,6 @@
       .authors{font-size:14px;}
       .btn{padding:8px 12px;font-size:14px;}
       main{ gap:40px;}
-      /* 小屏高度再调小一点，避免太长 */
       .pdf-frame-wide{ height:320px;}
       .pdf-frame-tall{ height:520px;}
     }
@@ -337,7 +334,12 @@
           <div class="section-content">
             <h3 class="section-subtitle">1. Multimodal BiMamba Network</h3>
             <p>
-              <strong>Motivation &amp; Challenge:</strong> As a typical form of time-series data, emotion-related physiological signals exhibit long-range dependencies reflecting the gradual accumulation of emotional changes. Emotions such as anxiety develop progressively and require a duration for their physiological manifestations to accumulate. This accumulation indicates that emotional changes are not just an instantaneous state but a process that evolves. Inter-modal correlations are also evident in the way different modalities respond. For instance, increases in EEG activity during emotional arousal are often accompanied by galvanic skin response conductance peaks and decreases in electrocardiogram heart-rate variability. Traditional backbone networks have limitations in modeling intra-modal long-range dependencies and inter-modal correlations. For intra-modal modeling, CNN-based networks excel at extracting local features but struggle to capture essential long-range temporal information. Although stacking more convolutional layers together with pooling operations to expand the receptive field can theoretically increase context, it often degrades fine-grained local details. Transformer-based networks are able to capture global emotional patterns, but their attention mechanism lacks explicit temporal filtering capability and tends to distribute weight uniformly across all time steps, which makes it difficult to construct practical long-range dependencies based on key nodes of emotion fluctuations. For inter-modal modeling, the token-level attention in Transformer-based networks only computes pairwise relationships between channels and maintains only instantaneous interaction states. However, the complex dependencies inherent in physiological signals cannot be fully captured through pairwise channel-wise interactions, making it difficult to model high-order correlations. This limitation essentially stems from the lack of explicit global state variables in the attention mechanism, which hinders the effective integration of cross-modal information. Therefore, effectively modeling the intra-modal long-range dependencies and inter-modal correlations of multimodal physiological signals remains a significant challenge.
+              <strong>Motivation &amp; Challenge:</strong>
+              <strong> As a typical form of time-series data, emotion-related physiological signals exhibit long-range dependencies reflecting the gradual accumulation of emotional changes.</strong>
+              Emotions such as anxiety develop progressively and require a duration for their physiological manifestations to accumulate. This accumulation indicates that emotional changes are not just an instantaneous state but a process that evolves.
+              <strong> Inter-modal correlations are also evident in the way different modalities respond.</strong>
+              For instance, increases in EEG activity during emotional arousal are often accompanied by galvanic skin response conductance peaks and decreases in electrocardiogram heart-rate variability.
+              <strong> Traditional backbone networks have limitations in modeling intra-modal long-range dependencies and inter-modal correlations.</strong>
             </p>
             <p>
               <strong>Our Approach:</strong> 这里概括 MBiM 的核心设计，例如基于 BiMamba 的时间序列建模机制、模态内与模态间双向结构，以及如何在统一框架中对多种生理模态进行对齐与融合，从而更充分地利用 EEG、EOG、ECG 等模态中互补的情感相关信息。
@@ -345,18 +347,23 @@
           </div>
         </div>
 
-        <!-- 方法 2：Test-Time Adaptation，图片在上，文字在下 -->
+        <!-- 方法 2：MMTTA，图片在上，文字在下 -->
         <div class="method-block" style="margin-top:32px">
           <div class="figure-box small">
-            <img src="MMTTA.png" alt="Test-Time Adaptation illustration" />
+            <img src="MMTTA.png" alt="MMTTA module illustration" />
           </div>
           <div class="fig-caption">
             Figure 2: Samples with weak distribution shifts and rich multimodal information are selected for adaptation, while the remaining samples are retained until the next iteration. Then, mutual information sharing across modalities is performed to match the information between different modalities effectively.
           </div>
           <div class="section-content">
-            <h3 class="section-subtitle">2. Test-Time Adaptation</h3>
+            <h3 class="section-subtitle">2. Test-Time Adaptation with Entropy-Based Filtering</h3>
             <p>
-              <strong>Motivation &amp; Challenge:</strong> When acquiring emotion-related physiological signals, subjects must remain seated for extended periods while exposed to high-intensity stimuli to generate emotional responses. However, uncontrollable factors such as perspiration, changes in posture, or the drying of the conductive gel may cause sensors to slip or experience poor contact, resulting in incomplete multimodal signal acquisition to varying degrees. Such incompleteness amplifies the distribution shifts in emotion-related physiological data and ultimately leads to degraded model performance. Emotion-related physiological data also inherently exhibit distribution shifts between the training and test sets. These shifts arise from within-subject variations in emotional state, cognitive load, and environmental conditions across sessions. The unavoidable presence of missing data disrupts the original data patterns, skews feature distributions, and introduces bias, which collectively amplify the existing distribution shifts in physiological data. This amplification makes it increasingly difficult for pre-trained models to capture emotional patterns accurately. Existing methods mainly focus on training-phase strategies to deal with the missing data problem. For example, previous work proposes feature-level and decision-level fusion methods to address missingness in multimodal emotion recognition, but these approaches usually require retraining to adapt to new missing data patterns, which limits their flexibility. A more promising direction is to mitigate the effects of missing data by fine-tuning the model during the testing phase. Recent test-time adaptation methods adjust self-attention modules to assign lower weights to the corrupted modality when dealing with unimodal corruption. However, these methods cannot handle multimodal corruption where multiple physiological signals are simultaneously missing. Therefore, mitigating the negative impact of missing multimodal data on emotion recognition models remains a significant practical challenge.
+              <strong>Motivation &amp; Challenge:</strong>
+              When acquiring emotion-related physiological signals, subjects must remain seated for extended periods while exposed to high-intensity stimuli to generate emotional responses.
+              <strong> However, uncontrollable factors such as perspiration, changes in posture, or the drying of the conductive gel may cause sensors to slip or experience poor contact, resulting in incomplete multimodal signal acquisition to varying degrees.</strong>
+              Such incompleteness amplifies the distribution shifts in emotion-related physiological data and ultimately leads to degraded model performance. Emotion-related physiological data also inherently exhibit distribution shifts between the training and test sets. These shifts arise from within-subject variations in emotional state, cognitive load, and environmental conditions across sessions. The unavoidable presence of missing data disrupts the original data patterns, skews feature distributions, and introduces bias, which collectively amplify the existing distribution shifts in physiological data.
+              <strong> This amplification makes it increasingly difficult for pre-trained models to capture emotional patterns accurately.</strong>
+              <strong> Existing methods mainly focus on training-phase strategies to deal with the missing data problem.</strong>
             </p>
             <p>
               <strong>Our Approach:</strong> 这里概括 MMTTA 的关键思想，包括基于两级熵的样本筛选策略、如何优先选择分布偏移较弱且信息较完整的样本进行更新，以及利用跨模态互信息共享在模态间传播可靠信息，从而实现更加平滑稳健的测试时适应，在缺失模态场景下仍保持良好的情感识别性能。
