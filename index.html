@@ -118,8 +118,9 @@
       border-radius:8px;
       box-shadow:inset 0 -6px 18px rgba(0,0,0,0.03);
     }
+    /* 顶部 paper figure：按整屏高度展示 */
     .pdf-frame-wide{
-      height:480px;
+      height:100vh;
     }
     .pdf-frame-tall{
       height:680px;
@@ -274,7 +275,8 @@
       .authors{font-size:14px;}
       .btn{padding:8px 12px;font-size:14px;}
       main{ gap:40px;}
-      .pdf-frame-wide{ height:320px;}
+      /* 小屏上也按视口高度展示，但可以稍微减一点避免太挤 */
+      .pdf-frame-wide{ height:90vh;}
       .pdf-frame-tall{ height:520px;}
     }
   </style>
@@ -313,7 +315,7 @@
       <section class="figure-box">
         <iframe
           class="pdf-frame pdf-frame-wide"
-          src="module-all.pdf#view=FitH">
+          src="module-all.pdf#view=FitV">
         </iframe>
       </section>
 
