@@ -118,7 +118,7 @@
       border-radius:8px;
       box-shadow:inset 0 -6px 18px rgba(0,0,0,0.03);
     }
-    /* 顶部 figure 说明文字样式（已加粗） */
+    /* 顶部 figure 说明文字样式（加粗） */
     .figure-caption-top{
       max-width:900px;
       margin:8px auto 0;
@@ -324,7 +324,7 @@
             <img src="BiMamba-module.png" alt="BiMamba backbone illustration" />
           </div>
           <div class="fig-caption">
-            Figure 1 Overview of the multimodal BiMamba backbone (MBiM) for modeling intra-modal dependencies and inter-modal correlations.
+            Figure 1: The intra- and inter-modal BiMamba modules capture and fuse the features of different modalities, respectively. "Concat" represents the concatenation of multiple feature vectors u<sub>1</sub>, u<sub>2</sub>, ..., u<sub>M</sub>. T denotes matrix transposition.
           </div>
           <div class="section-content">
             <h3 class="section-subtitle">1. MBiM Backbone</h3>
@@ -340,7 +340,7 @@
             <img src="MMTTA.png" alt="MMTTA module illustration" />
           </div>
           <div class="fig-caption">
-            Figure 2 Multimodal test-time adaptation (MMTTA) with two-level entropy-based sample filtering and mutual information sharing across modalities.
+            Figure 2: Samples with weak distribution shifts and rich multimodal information are selected for adaptation, while the remaining samples are retained until the next iteration. Then, mutual information sharing across modalities is performed to match the information between different modalities effectively.
           </div>
           <div class="section-content">
             <h3 class="section-subtitle">2. Test-Time Adaptation with Entropy-Based Filtering</h3>
@@ -361,7 +361,6 @@
           </div>
 
           <div class="video-box">
-            <!-- 把 src 换成你的 mp4 链接 或者暂时留空 -->
             <video controls>
               <source src="video_en.mp4" type="video/mp4">
               Your browser does not support the video tag.
