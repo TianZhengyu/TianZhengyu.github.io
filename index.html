@@ -150,11 +150,19 @@
       font-weight:700;
       margin:0 0 18px;
     }
+
+    /* 让小标题更突出：颜色更深、稍大、带浅色背景条 */
     .section-subtitle{
-      font-size:18px;
+      font-size:19px;
       font-weight:700;
       margin:0 0 8px;
+      color:var(--accent);
+      display:inline-block;
+      padding:4px 12px;
+      border-radius:999px;
+      background:rgba(15,23,42,0.06);
     }
+
     .section-content{
       max-width:900px;
       margin:0 auto;
@@ -246,6 +254,11 @@
       font-size:14px;
       overflow-x:auto;
       box-sizing:border-box;
+    }
+
+    /* 稍微弱化正文粗体，让它不要和小标题抢视觉中心 */
+    strong{
+      font-weight:600;
     }
 
     footer{
