@@ -560,13 +560,10 @@
       <section class="section section--soft">
         <h2 class="section-title">Experimental Results</h2>
 
-        <!-- 小节 1 -->
+        <!-- 小节 1：先小标题，再图，再 caption，再大段描述 -->
         <div class="method-block">
           <div class="section-content">
             <h3 class="section-subtitle">1. Experiments without Missing Data</h3>
-            <p>
-              For experiments without missing data, as shown in Table 1, BiM-TTA models long-range dependencies within modalities and correlations between modalities through the intra-modal BiMamba module and inter-modal BiMamba module. It achieves the best performance on both datasets, demonstrating the superiority of the multimodal BiMamba backbone network.
-            </p>
           </div>
           <div class="figure-box small">
             <img src="experiment-1.png" class="exp1-img" alt="Experimental results overview" />
@@ -574,15 +571,17 @@
           <div class="fig-caption">
             Table 1: Comparison of emotion recognition baselines on DEAP and MAHNOB-HCI in terms of valence and arousal accuracy.
           </div>
+          <div class="section-content">
+            <p>
+              For experiments without missing data, as shown in Table 1, BiM-TTA models long-range dependencies within modalities and correlations between modalities through the intra-modal BiMamba module and inter-modal BiMamba module. It achieves the best performance on both datasets, demonstrating the superiority of the multimodal BiMamba backbone network.
+            </p>
+          </div>
         </div>
 
-        <!-- 小节 2 -->
+        <!-- 小节 2：同样结构 -->
         <div class="method-block" style="margin-top:32px">
           <div class="section-content">
             <h3 class="section-subtitle">2. Experiments with Missing Data</h3>
-            <p>
-              For experiments with missing data, Table 2 and 3 present the performance improvements of BiM-TTA and other TTA methods relative to the "No Adapt" method. "No Adapt" denotes a model trained on the source domain and subsequently evaluated on the target domain containing missing data, without any adaptation. Our method uses two-level entropy-based sample filtering to avoid the model directly adapting to samples with strong distribution shifts and limited multimodal information. Furthermore, we utilize inter-modal information sharing to align the information between different modalities, facilitating the full adaptation of the model.
-            </p>
           </div>
           <div class="figure-box small">
             <img src="experiment-2.1.png" alt="Ablation study part 1" />
@@ -592,6 +591,11 @@
           </div>
           <div class="fig-caption">
             Table 2 and 3: Comparative analysis of accuracy for different TTA methods on DEAP and Mahnob-HCI with missing data, relative to the baseline method "No Adapt". The No Adapt baseline corresponds to a model pretrained on the source domain and directly evaluated on the target domain without any adaptation. Results report the improvement rate of each TTA method over "No Adapt" at mask ratios of 0.2, 0.4, 0.6, and 0.8, along with the average improvement.
+          </div>
+          <div class="section-content">
+            <p>
+              For experiments with missing data, Table 2 and 3 present the performance improvements of BiM-TTA and other TTA methods relative to the "No Adapt" method. "No Adapt" denotes a model trained on the source domain and subsequently evaluated on the target domain containing missing data, without any adaptation. Our method uses two-level entropy-based sample filtering to avoid the model directly adapting to samples with strong distribution shifts and limited multimodal information. Furthermore, we utilize inter-modal information sharing to align the information between different modalities, facilitating the full adaptation of the model.
+            </p>
           </div>
         </div>
       </section>
