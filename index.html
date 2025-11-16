@@ -110,13 +110,23 @@
       display:block;
       box-shadow:inset 0 -6px 18px rgba(0,0,0,0.03);
     }
-    .figure-box iframe{
+
+    /* 统一 PDF iframe 样式 + 不同高度 */
+    .pdf-frame{
       width:100%;
-      height:600px;
       border:0;
       border-radius:8px;
       box-shadow:inset 0 -6px 18px rgba(0,0,0,0.03);
     }
+    .pdf-frame-wide{
+      /* module-all.pdf：横向结构，稍矮一点 */
+      height:480px;
+    }
+    .pdf-frame-tall{
+      /* poster.pdf：纵向较长，给更大高度 */
+      height:680px;
+    }
+
     /* 只缩小 experiment-1.png */
     .exp1-img{
       width:66%;
@@ -220,17 +230,11 @@
     .poster-frame{
       width:100%;
       max-width:1000px;
-      height:480px;
       margin:0 auto;
       border-radius:14px;
       overflow:hidden;
       border:1px solid #e5e7eb;
       background:#f9fafb;
-    }
-    .poster-frame iframe{
-      width:100%;
-      height:100%;
-      border:0;
     }
 
     .bibtex-block{
@@ -259,7 +263,9 @@
       .authors{font-size:14px;}
       .btn{padding:8px 12px;font-size:14px;}
       main{ gap:40px;}
-      .poster-frame{ height:360px;}
+      /* 小屏高度再调小一点，避免太长 */
+      .pdf-frame-wide{ height:320px;}
+      .pdf-frame-tall{ height:520px;}
     }
   </style>
 </head>
@@ -295,7 +301,10 @@
     <main>
       <!-- 顶部方法大图：嵌入同目录下的 module-all.pdf -->
       <section class="figure-box">
-        <iframe src="module-all.pdf"></iframe>
+        <iframe
+          class="pdf-frame pdf-frame-wide"
+          src="module-all.pdf#view=FitH">
+        </iframe>
       </section>
 
       <!-- 顶部 figure 描述文字（已加粗） -->
@@ -423,7 +432,10 @@
       <section class="section">
         <h2 class="section-title">Poster</h2>
         <div class="poster-frame">
-          <iframe src="poster.pdf"></iframe>
+          <iframe
+            class="pdf-frame pdf-frame-tall"
+            src="poster.pdf#view=FitH">
+          </iframe>
         </div>
       </section>
 
