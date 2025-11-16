@@ -156,20 +156,16 @@
       background:#f9fafb;
     }
 
-    /* 双栏布局：方法图 + 文本 */
-    .two-col{
-      display:flex;
-      flex-wrap:wrap;
-      gap:32px;
-      align-items:flex-start;
-      margin-top:24px;
+    /* 方法块：图片在上，文字在下 */
+    .method-block{
+      max-width:1000px;
+      margin:0 auto;
     }
-    .col{
-      flex:1 1 280px;
-    }
+
     .figure-box.small{
       padding:16px;
     }
+
     .fig-caption{
       text-align:center;
       font-size:13px;
@@ -263,7 +259,6 @@
       .authors{font-size:13px;}
       .btn{padding:8px 12px;font-size:13px;}
       main{ gap:40px;}
-      .two-col{ flex-direction:column;}
       .poster-frame{ height:360px;}
     }
   </style>
@@ -322,40 +317,34 @@
       <section class="section">
         <h2 class="section-title">Methodology</h2>
 
-        <!-- 方法 1：比如 MBiM Backbone -->
-        <div class="two-col">
-          <div class="col">
-            <div class="figure-box small">
-              <!-- 换成方法图 1 -->
-              <img src="method1.png" alt="Method 1 illustration" />
-            </div>
-            <div class="fig-caption">
-              Figure 1 你的框架总览示意图说明
-            </div>
+        <!-- 方法 1：MBiM Backbone，图片在上，文字在下 -->
+        <div class="method-block">
+          <div class="figure-box small">
+            <img src="BiMamba-module.png" alt="BiMamba backbone illustration" />
           </div>
-          <div class="col">
+          <div class="fig-caption">
+            Figure 1 Overview of the multimodal BiMamba backbone (MBiM) for modeling intra-modal dependencies and inter-modal correlations.
+          </div>
+          <div class="section-content">
             <h3 class="section-subtitle">1. MBiM Backbone</h3>
-            <p class="section-content">
-              这里用一两段话介绍 MBiM 作为多模态骨干网络的整体结构和设计动机，例如模态内长程依赖建模、模态间交互等。
+            <p>
+              这里用一两段话介绍 MBiM 作为多模态骨干网络的整体结构和设计动机，例如模态内长程依赖建模、模态间交互等。你可以后续把这部分替换为正式的英文介绍。
             </p>
           </div>
         </div>
 
-        <!-- 方法 2：比如 Test-Time Adaptation -->
-        <div class="two-col" style="margin-top:32px">
-          <div class="col">
-            <div class="figure-box small">
-              <!-- 换成方法图 2 -->
-              <img src="method2.png" alt="Method 2 illustration" />
-            </div>
-            <div class="fig-caption">
-              Figure 2 Test-Time Adaptation 模块示意图
-            </div>
+        <!-- 方法 2：MMTTA，图片在上，文字在下 -->
+        <div class="method-block" style="margin-top:32px">
+          <div class="figure-box small">
+            <img src="MMTTA.png" alt="MMTTA module illustration" />
           </div>
-          <div class="col">
+          <div class="fig-caption">
+            Figure 2 Multimodal test-time adaptation (MMTTA) with two-level entropy-based sample filtering and mutual information sharing across modalities.
+          </div>
+          <div class="section-content">
             <h3 class="section-subtitle">2. Test-Time Adaptation with Entropy-Based Filtering</h3>
-            <p class="section-content">
-              这里介绍 TTA 的目标函数、两级熵样本筛选思想以及如何与 MBiM 进行协同。先写中文草稿也没有问题，只是占位用。
+            <p>
+              这里介绍 TTA 的目标函数、两级熵样本筛选思想以及如何与 MBiM 进行协同，例如如何缓解分布偏移、如何在缺失模态下稳健适应目标域。
             </p>
           </div>
         </div>
