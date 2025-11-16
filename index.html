@@ -382,12 +382,12 @@
             <img src="experiment-1.png" class="exp1-img" alt="Experimental results overview" />
           </div>
           <div class="fig-caption">
-            Figure 3: Overall emotion recognition performance of BiM-TTA and comparison methods under different missing-modality settings.
+            Table 1: Comparison of emotion recognition baselines on DEAP and MAHNOB-HCI in terms of valence and arousal accuracy.
           </div>
           <div class="section-content">
-            <h3 class="section-subtitle">1. Overall Performance under Missing Modalities</h3>
+            <h3 class="section-subtitle">1. Experiments without Missing Data</h3>
             <p>
-              这里简要说明 <code>experiment-1.png</code> 展示的结果，例如在不同缺失模态比例或缺失模式下，BiM-TTA 相比传统 TTA 方法和无适应基线在准确率、F1 等指标上普遍取得更高性能，并且在高缺失率场景中仍保持稳定优势。
+              For experiments without missing data, as shown in Table 1, BiM-TTA models long-range dependencies within modalities and correlations between modalities through the intra-modal BiMamba module and inter-modal BiMamba module. It achieves the best performance on both datasets, demonstrating the superiority of the multimodal BiMamba backbone network.
             </p>
           </div>
         </div>
@@ -401,12 +401,12 @@
             <img src="experiment-2.2.png" alt="Ablation study part 2" />
           </div>
           <div class="fig-caption">
-            Figure 4: Ablation and robustness analysis of BiM-TTA. The two subfigures report the impact of different TTA settings and missing-modality configurations on the final performance.
+            Table 2 &amp; 3: Comparative analysis of accuracy for different TTA methods on DEAP and Mahnob-HCI with missing data, relative to the baseline method ``No Adapt''. The No Adapt baseline corresponds to a model pretrained on the source domain and directly evaluated on the target domain without any adaptation. Results report the improvement rate of each TTA method over ``No Adapt'' at mask ratios of 0.2, 0.4, 0.6, and 0.8, along with the average improvement.
           </div>
           <div class="section-content">
             <h3 class="section-subtitle">2. Ablation Studies and Robustness Analysis</h3>
             <p>
-              这里概括 <code>experiment-2.1.png</code> 和 <code>experiment-2.2.png</code> 的关键信息，例如移除 TTA、去掉两级熵样本筛选或关闭互信息共享后性能明显下降，以及在不同缺失模态组合、缺失比例或不同数据集上的鲁棒性表现，从而支持 BiM-TTA 各个组件设计的必要性。
+              For experiments with missing data, Table 2 &amp; 3 present the performance improvements of BiM-TTA and other TTA methods relative to the ``No Adapt'' method. ``No Adapt'' denotes a model trained on the source domain and subsequently evaluated on the target domain containing missing data, without any adaptation. Our method uses two-level entropy-based sample filtering to avoid the model directly adapting to samples with strong distribution shifts and limited multimodal information. Furthermore, we utilize inter-modal information sharing to align the information between different modalities, facilitating the full adaptation of the model.
             </p>
           </div>
         </div>
