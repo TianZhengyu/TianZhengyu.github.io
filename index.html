@@ -116,14 +116,19 @@
       box-shadow:inset 0 -6px 18px rgba(0,0,0,0.03);
     }
 
-    /* 统一 PDF iframe 样式 + 不同高度 */
+    /* 单独给 paper figure 一个类，便于未来微调 */
+    .paper-figure{
+      max-height:80vh;
+      width:auto;
+    }
+
+    /* PDF iframe 样式（给 Poster 区使用） */
     .pdf-frame{
       width:100%;
       border:0;
       border-radius:8px;
       box-shadow:inset 0 -6px 18px rgba(0,0,0,0.03);
     }
-    /* 顶部 paper figure：略小于整屏高度，减少底部留白，同时 FitV 显示整张图 */
     .pdf-frame-wide{
       height:80vh;
     }
@@ -311,12 +316,15 @@
       main{
         gap:40px;
       }
-      /* 小屏上按视口高度展示整张 figure */
+      /* 小屏上让 poster 的 pdf 不要太高 */
       .pdf-frame-wide{
         height:90vh;
       }
       .pdf-frame-tall{
         height:520px;
+      }
+      .paper-figure{
+        max-height:70vh;
       }
     }
   </style>
@@ -351,12 +359,9 @@
     </header>
 
     <main>
-      <!-- 顶部方法大图：嵌入同目录下的 module-all.pdf -->
+      <!-- 顶部方法大图：使用同目录下的 paper figure.png -->
       <section class="figure-box">
-        <iframe
-          class="pdf-frame pdf-frame-wide"
-          src="module-all.pdf#view=FitV">
-        </iframe>
+        <img src="paper%20figure.png" alt="Paper overview figure" class="paper-figure" />
       </section>
 
       <!-- 顶部 figure 描述高亮卡片 -->
