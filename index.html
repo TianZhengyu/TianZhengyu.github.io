@@ -108,6 +108,13 @@
       align-items:center;
       background:linear-gradient(180deg,rgba(255,255,255,0.6),rgba(255,255,255,0.4));
     }
+
+    /* 顶部 paper figure：压缩上下留白 */
+    .figure-main{
+      padding:8px 18px;      /* 原来 22px，减小上下 padding */
+      margin-bottom:4px;     /* 减小和 caption 之间的距离 */
+    }
+
     .figure-box img{
       max-width:100%;
       height:auto;
@@ -139,7 +146,7 @@
 
     .figure-caption-top{
       max-width:900px;
-      margin:8px auto 0;
+      margin:4px auto 0;      /* 从 8px 改成 4px，再贴近一点 */
       font-size:17px;
       line-height:1.8;
       color:var(--muted);
@@ -332,7 +339,7 @@
 
     <main>
       <!-- 顶部方法大图：嵌入同目录下的 module-all.pdf -->
-      <section class="figure-box">
+      <section class="figure-box figure-main">
         <iframe
           class="pdf-frame pdf-frame-wide"
           src="module-all.pdf#view=Fit">
