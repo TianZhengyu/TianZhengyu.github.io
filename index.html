@@ -110,6 +110,14 @@
       display:block;
       box-shadow:inset 0 -6px 18px rgba(0,0,0,0.03);
     }
+    /* 新增：用于嵌入 module-all.pdf 的样式 */
+    .figure-box iframe{
+      width:100%;
+      height:600px;
+      border:0;
+      border-radius:8px;
+      box-shadow:inset 0 -6px 18px rgba(0,0,0,0.03);
+    }
 
     /* 通用小节样式 */
     .section{
@@ -281,12 +289,12 @@
     </header>
 
     <main>
-      <!-- 顶部方法大图 -->
+      <!-- 顶部方法大图：嵌入同目录下的 module-all.pdf -->
       <section class="figure-box">
-        <!-- 换成你的总览图 -->
-        <img src="figure.png" alt="paper figure" />
+        <iframe src="module-all.pdf"></iframe>
       </section>
 
+      
       <!-- Abstract 区 -->
       <section class="section section--soft">
         <h2 class="section-title">Abstract</h2>
@@ -389,10 +397,11 @@ url={https://openreview.net/forum?id=3vLp3J7540}
         </pre>
       </section>
     </main>
-
+    
     <footer>
       Built with simple HTML and CSS. Replace placeholder texts, images, video and poster links with your own content.
     </footer>
   </div>
 </body>
 </html>
+
