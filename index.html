@@ -322,7 +322,10 @@
           <div class="section-content">
             <h3 class="section-subtitle">1. MBiM Backbone</h3>
             <p>
-              这里用一两段话介绍 MBiM 作为多模态骨干网络的整体结构和设计动机，例如模态内长程依赖建模、模态间交互等。你可以后续把这部分替换为正式的英文介绍。
+              <strong>Motivation &amp; Challenge:</strong> 这里说明在多模态生理信号中，为什么需要专门的骨干网络来同时处理模态内长程依赖和模态间相关性，以及现有方法在这两方面的不足，例如只能建模局部时间依赖、难以显式对齐不同模态的时序结构等。
+            </p>
+            <p>
+              <strong>Our Approach:</strong> 这里概括 MBiM 的核心设计，例如基于 BiMamba 的时间序列建模机制、模态内与模态间双向结构，以及如何在统一框架中对多种生理模态进行对齐与融合，从而更充分地利用 EEG、EOG、ECG 等模态中互补的情感相关信息。
             </p>
           </div>
         </div>
@@ -338,7 +341,10 @@
           <div class="section-content">
             <h3 class="section-subtitle">2. Test-Time Adaptation with Entropy-Based Filtering</h3>
             <p>
-              这里介绍 TTA 的目标函数、两级熵样本筛选思想以及如何与 MBiM 进行协同，例如如何缓解分布偏移、如何在缺失模态下稳健适应目标域。
+              <strong>Motivation &amp; Challenge:</strong> 这里强调在真实应用中测试阶段容易出现多模态缺失和分布偏移，直接对所有缺失样本进行适应容易导致模型过度拟合目标域噪声，从而放大性能退化，尤其是在严重缺失或单模态极度退化的情形。
+            </p>
+            <p>
+              <strong>Our Approach:</strong> 这里概括 MMTTA 的关键思想，包括基于两级熵的样本筛选策略、如何优先选择分布偏移较弱且信息较完整的样本进行更新，以及利用跨模态互信息共享在模态间传播可靠信息，从而实现更加平滑稳健的测试时适应，在缺失模态场景下仍保持良好的情感识别性能。
             </p>
           </div>
         </div>
