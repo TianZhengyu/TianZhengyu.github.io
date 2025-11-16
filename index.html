@@ -350,6 +350,46 @@
         </div>
       </section>
 
+      <!-- Experimental Results 区 -->
+      <section class="section">
+        <h2 class="section-title">Experimental Results</h2>
+
+        <!-- 小节 1：experiment-1.png -->
+        <div class="method-block">
+          <div class="figure-box small">
+            <img src="experiment-1.png" alt="Experimental results overview" />
+          </div>
+          <div class="fig-caption">
+            Figure 3: Overall emotion recognition performance of BiM-TTA and comparison methods under different missing-modality settings.
+          </div>
+          <div class="section-content">
+            <h3 class="section-subtitle">1. Overall Performance under Missing Modalities</h3>
+            <p>
+              这里简要说明 <code>experiment-1.png</code> 展示的结果，例如在不同缺失模态比例或缺失模式下，BiM-TTA 相比传统 TTA 方法和无适应基线在准确率、F1 等指标上普遍取得更高性能，并且在高缺失率场景中仍保持稳定优势。
+            </p>
+          </div>
+        </div>
+
+        <!-- 小节 2：experiment-2.1.png 和 experiment-2.2.png -->
+        <div class="method-block" style="margin-top:32px">
+          <div class="figure-box small">
+            <img src="experiment-2.1.png" alt="Ablation study part 1" />
+          </div>
+          <div class="figure-box small" style="margin-top:16px">
+            <img src="experiment-2.2.png" alt="Ablation study part 2" />
+          </div>
+          <div class="fig-caption">
+            Figure 4: Ablation and robustness analysis of BiM-TTA. The two subfigures report the impact of different TTA settings and missing-modality configurations on the final performance.
+          </div>
+          <div class="section-content">
+            <h3 class="section-subtitle">2. Ablation Studies and Robustness Analysis</h3>
+            <p>
+              这里概括 <code>experiment-2.1.png</code> 和 <code>experiment-2.2.png</code> 的关键信息，例如移除 TTA、去掉两级熵样本筛选或关闭互信息共享后性能明显下降，以及在不同缺失模态组合、缺失比例或不同数据集上的鲁棒性表现，从而支持 BiM-TTA 各个组件设计的必要性。
+            </p>
+          </div>
+        </div>
+      </section>
+
       <!-- Video Presentation 区 -->
       <section class="section section--soft">
         <h2 class="section-title">Video Presentation</h2>
@@ -361,45 +401,4 @@
 
           <div class="video-box">
             <video controls>
-              <source src="video_en.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-
-          <div class="btn-row">
-            <a class="btn btn-paper" href="#">Download English Slides (.pptx)</a>
-            <a class="btn btn-code" href="#">下载中文PPT (.pptx)</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- Poster 区：嵌入同目录下的 poster.pdf -->
-      <section class="section">
-        <h2 class="section-title">Poster</h2>
-        <div class="poster-frame">
-          <iframe src="poster.pdf"></iframe>
-        </div>
-      </section>
-
-      <!-- BibTeX 区 -->
-      <section class="section section--soft">
-        <h2 class="section-title">BibTeX</h2>
-        <pre class="bibtex-block">
-@inproceedings{
-jia2025a,
-title={A Multimodal BiMamba Network with Test-Time Adaptation for Emotion Recognition Based on Physiological Signals},
-author={Ziyu Jia and Tingyu Du and Zhengyu Tian and Hongkai Li and Yong Zhang and Chenyu Liu},
-booktitle={The Thirty-ninth Annual Conference on Neural Information Processing Systems},
-year={2025},
-url={https://openreview.net/forum?id=3vLp3J7540}
-}
-        </pre>
-      </section>
-    </main>
-
-    <footer>
-      Built with simple HTML and CSS. Replace placeholder texts, images, video and poster links with your own content.
-    </footer>
-  </div>
-</body>
-</html>
+              <source src="video_en.mp4" t_
