@@ -132,14 +132,23 @@
       height:auto;
     }
 
+    /* 顶部方法描述高亮卡片 */
     .figure-caption-top{
-      max-width:900px;
-      margin:8px auto 0;
-      font-size:17px;
-      line-height:1.8;
-      color:var(--muted);
-      text-align:center;
-      font-weight:600;
+      max-width:960px;
+      margin:16px auto 0;
+      padding:14px 18px;
+      font-size:18px;
+      line-height:1.9;
+      color:#111827;
+      text-align:left;
+      font-weight:500;
+      background:#f3f4f6;
+      border-radius:14px;
+      border-left:4px solid #111827;
+      box-shadow:0 6px 16px rgba(15,23,42,0.08);
+    }
+    .figure-caption-top .fc-key{
+      font-weight:700;
     }
 
     .section{
@@ -319,9 +328,13 @@
         </iframe>
       </section>
 
-      <!-- 顶部 figure 描述文字 -->
+      <!-- 顶部 figure 描述文字：高亮卡片 -->
       <div class="figure-caption-top">
-        In this paper, we propose a multimodal BiMamba network with TTA for emotion recognition. The multimodal BiMamba network effectively captures intra-modal dependencies and inter-modal correlations of multimodal physiological signals. The two-level entropy-based sample filtering and mutual information sharing across modalities achieve smooth adaptation to the target domain and reduce distribution shifts across modalities, thereby alleviating the negative impact of amplified distribution shifts caused by missing multimodal data.
+        <strong>In this paper, we propose a multimodal BiMamba network with TTA for emotion recognition.</strong>
+        <br>
+        <span class="fc-key">The multimodal BiMamba network</span> effectively captures intra-modal dependencies and inter-modal correlations of multimodal physiological signals. 
+        <span class="fc-key">The two-level entropy-based sample filtering</span> and 
+        <span class="fc-key">mutual information sharing across modalities</span> achieve smooth adaptation to the target domain and reduce distribution shifts across modalities, thereby alleviating the negative impact of amplified distribution shifts caused by missing multimodal data.
       </div>
 
       <!-- 1. Abstract 区：灰 -->
