@@ -59,13 +59,20 @@
       vertical-align:super;
       margin-left:2px;
       font-weight:700;
+      color:inherit;
     }
-    .tag1{ color:#ef4444; }   /* red */
-    .tag2{ color:#3b82f6; }   /* blue */
-    .tag3{ color:#10b981; }   /* green */
-    .tag4{ color:#f97316; }   /* orange */
-    .tag5{ color:#8b5cf6; }   /* purple */
-    .tag6{ color:#ec4899; }   /* pink */
+    .authors sup span{
+      font-weight:700;
+    }
+
+    /* 1-7 对应 7 种颜色，作者角标和单位编号共用 */
+    .tag1{ color:#ef4444; }   /* 1 - red */
+    .tag2{ color:#3b82f6; }   /* 2 - blue */
+    .tag3{ color:#10b981; }   /* 3 - green */
+    .tag4{ color:#f97316; }   /* 4 - orange */
+    .tag5{ color:#8b5cf6; }   /* 5 - purple */
+    .tag6{ color:#ec4899; }   /* 6 - pink */
+    .tag7{ color:#0ea5e9; }   /* 7 - cyan */
 
     .venue-tag{
       margin:4px 0 6px;
@@ -82,6 +89,11 @@
       font-size:14px;
       margin-top:4px;
     }
+    .affil .aff-num{
+      font-weight:700;
+      margin-right:4px;
+    }
+
     .meta{
       margin-top:4px;
       color:var(--muted);
@@ -154,13 +166,13 @@
       box-shadow:inset 0 -6px 18px rgba(0,0,0,0.03);
     }
 
-    /* 单独给 paper figure 一个类，便于未来微调 */
+    /* 单独给 paper figure 一个类 */
     .paper-figure{
       max-height:80vh;
       width:auto;
     }
 
-    /* PDF iframe 样式（给 Poster 区使用） */
+    /* PDF iframe 样式（Poster 区使用） */
     .pdf-frame{
       width:100%;
       border:0;
@@ -207,7 +219,7 @@
       margin:0 0 18px;
     }
 
-    /* 让小标题更突出：颜色更深、稍大、带浅色背景条 */
+    /* 小标题突出 */
     .section-subtitle{
       font-size:19px;
       font-weight:700;
@@ -325,7 +337,6 @@
       box-sizing:border-box;
     }
 
-    /* 稍微弱化正文粗体，让它不要和小标题抢视觉中心 */
     strong{
       font-weight:600;
     }
@@ -376,23 +387,62 @@
 
       <div class="authors">
         <div class="author-line">
-          Ziyu Jia<sup class="tag1">1,2</sup>,
-          Tingyu Du<sup class="tag2">3,4</sup>,
-          Zhengyu Tian<sup class="tag3">5</sup>,
-          Hongkai Li<sup class="tag4">5</sup>,
-          Yong Zhang<sup class="tag5">6*</sup>,
-          Chenyu Liu<sup class="tag6">7*</sup>
+          Ziyu Jia
+          <sup>
+            <span class="tag1">1</span>, <span class="tag2">2</span>
+          </sup>,
+          Tingyu Du
+          <sup>
+            <span class="tag3">3</span>, <span class="tag4">4</span>
+          </sup>,
+          Zhengyu Tian
+          <sup>
+            <span class="tag5">5</span>
+          </sup>,
+          Hongkai Li
+          <sup>
+            <span class="tag5">5</span>
+          </sup>,
+          Yong Zhang
+          <sup>
+            <span class="tag6">6*</span>
+          </sup>,
+          Chenyu Liu
+          <sup>
+            <span class="tag7">7*</span>
+          </sup>
         </div>
 
-        <div class="venue-tag">NeurIPS 2025</div>
+        <div class="venue-tag">NEURIPS 2025</div>
 
-        <div class="affil">1 Institute of Automation, Chinese Academy of Sciences</div>
-        <div class="affil">2 Shanghai Key Laboratory of Data Science</div>
-        <div class="affil">3 Beijing Key Laboratory of Mobile Computing and Pervasive Devices, Institute of Computing Technology, Chinese Academy of Sciences</div>
-        <div class="affil">4 University of Chinese Academy of Sciences</div>
-        <div class="affil">5 School of Computer Science and Technology, Beijing Jiaotong University</div>
-        <div class="affil">6 School of Information Engineering, Huzhou University</div>
-        <div class="affil">7 College of Computing and Data Science, Nanyang Technological University</div>
+        <div class="affil">
+          <span class="aff-num tag1">1</span>
+          Institute of Automation, Chinese Academy of Sciences
+        </div>
+        <div class="affil">
+          <span class="aff-num tag2">2</span>
+          Shanghai Key Laboratory of Data Science
+        </div>
+        <div class="affil">
+          <span class="aff-num tag3">3</span>
+          Beijing Key Laboratory of Mobile Computing and Pervasive Devices, Institute of Computing Technology, Chinese Academy of Sciences
+        </div>
+        <div class="affil">
+          <span class="aff-num tag4">4</span>
+          University of Chinese Academy of Sciences
+        </div>
+        <div class="affil">
+          <span class="aff-num tag5">5</span>
+          School of Computer Science and Technology, Beijing Jiaotong University
+        </div>
+        <div class="affil">
+          <span class="aff-num tag6">6</span>
+          School of Information Engineering, Huzhou University
+        </div>
+        <div class="affil">
+          <span class="aff-num tag7">7</span>
+          College of Computing and Data Science, Nanyang Technological University
+        </div>
       </div>
 
       <div class="meta">
@@ -402,7 +452,7 @@
       <div class="btns">
         <a class="btn btn-paper" href="https://neurips.cc/virtual/2025/loc/san-diego/poster/119989">
           <span class="btn-icon" aria-hidden="true">
-            <!-- 简单 PDF 图标 -->
+            <!-- PDF 图标 -->
             <svg viewBox="0 0 24 24" fill="none">
               <rect x="4" y="3" width="14" height="18" rx="2" ry="2" stroke="white" stroke-width="1.6"/>
               <path d="M14 3v4h4" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
@@ -413,7 +463,7 @@
         </a>
         <a class="btn btn-code" href="https://anonymous.4open.science/r/BiM-TTA-B604">
           <span class="btn-icon" aria-hidden="true">
-            <!-- 简化 GitHub 猫头像图标（线框） -->
+            <!-- GitHub 风格线框图标 -->
             <svg viewBox="0 0 24 24" fill="none">
               <path d="M12 3c-4.4 0-8 3.6-8 8 0 3.5 2.3 6.4 5.5 7.4-.1-.4-.1-.8-.1-1.3v-1.2c-2 .4-2.5-.9-2.5-.9-.3-.7-.8-1-0.8-1-.6-.4 0-.4 0-.4.6 0.1 1 .7 1 .7.5.9 1.4.6 1.8.4 0-.4.2-.7.3-.9-1.6-.2-3.3-.8-3.3-3.5 0-.8.3-1.4.7-1.9-.1-.2-.3-.9 0-1.8 0 0 .6-.2 2 .7.6-.2 1.3-.3 2-.3.7 0 1.4.1 2 .3 1.4-.9 2-.7 2-.7.3.9.1 1.6 0 1.8.5.5.7 1.1.7 1.9 0 2.7-1.7 3.3-3.3 3.5.2.2.3.6.3 1.1v1.6c0 .5 0 .9-.1 1.3 3.2-1.1 5.5-4 5.5-7.4 0-4.4-3.6-8-8-8z"
                     stroke="#111827" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
@@ -510,24 +560,30 @@
       <section class="section section--soft">
         <h2 class="section-title">Experimental Results</h2>
 
-        <!-- 小节 1：experiment-1.png -->
+        <!-- 小节 1 -->
         <div class="method-block">
-          <div class="figure-box small">
-            <img src="experiment-1.png" class="exp1-img" alt="Experimental results overview" />
-          </div>
-          <div class="fig-caption">
-            Table 1: Comparison of emotion recognition baselines on DEAP and MAHNOB-HCI in terms of valence and arousal accuracy.
-          </div>
           <div class="section-content">
             <h3 class="section-subtitle">1. Experiments without Missing Data</h3>
             <p>
               For experiments without missing data, as shown in Table 1, BiM-TTA models long-range dependencies within modalities and correlations between modalities through the intra-modal BiMamba module and inter-modal BiMamba module. It achieves the best performance on both datasets, demonstrating the superiority of the multimodal BiMamba backbone network.
             </p>
           </div>
+          <div class="figure-box small">
+            <img src="experiment-1.png" class="exp1-img" alt="Experimental results overview" />
+          </div>
+          <div class="fig-caption">
+            Table 1: Comparison of emotion recognition baselines on DEAP and MAHNOB-HCI in terms of valence and arousal accuracy.
+          </div>
         </div>
 
-        <!-- 小节 2：experiment-2.1.png 和 experiment-2.2.png -->
+        <!-- 小节 2 -->
         <div class="method-block" style="margin-top:32px">
+          <div class="section-content">
+            <h3 class="section-subtitle">2. Experiments with Missing Data</h3>
+            <p>
+              For experiments with missing data, Table 2 and 3 present the performance improvements of BiM-TTA and other TTA methods relative to the "No Adapt" method. "No Adapt" denotes a model trained on the source domain and subsequently evaluated on the target domain containing missing data, without any adaptation. Our method uses two-level entropy-based sample filtering to avoid the model directly adapting to samples with strong distribution shifts and limited multimodal information. Furthermore, we utilize inter-modal information sharing to align the information between different modalities, facilitating the full adaptation of the model.
+            </p>
+          </div>
           <div class="figure-box small">
             <img src="experiment-2.1.png" alt="Ablation study part 1" />
           </div>
@@ -535,13 +591,7 @@
             <img src="experiment-2.2.png" alt="Ablation study part 2" />
           </div>
           <div class="fig-caption">
-            Table 2 &amp; 3: Comparative analysis of accuracy for different TTA methods on DEAP and Mahnob-HCI with missing data, relative to the baseline method "No Adapt". The No Adapt baseline corresponds to a model pretrained on the source domain and directly evaluated on the target domain without any adaptation. Results report the improvement rate of each TTA method over "No Adapt" at mask ratios of 0.2, 0.4, 0.6, and 0.8, along with the average improvement.
-          </div>
-          <div class="section-content">
-            <h3 class="section-subtitle">2. Experiments with Missing Data</h3>
-            <p>
-              For experiments with missing data, Table 2 &amp; 3 present the performance improvements of BiM-TTA and other TTA methods relative to the "No Adapt" method. "No Adapt" denotes a model trained on the source domain and subsequently evaluated on the target domain containing missing data, without any adaptation. Our method uses two-level entropy-based sample filtering to avoid the model directly adapting to samples with strong distribution shifts and limited multimodal information. Furthermore, we utilize inter-modal information sharing to align the information between different modalities, facilitating the full adaptation of the model.
-            </p>
+            Table 2 and 3: Comparative analysis of accuracy for different TTA methods on DEAP and Mahnob-HCI with missing data, relative to the baseline method "No Adapt". The No Adapt baseline corresponds to a model pretrained on the source domain and directly evaluated on the target domain without any adaptation. Results report the improvement rate of each TTA method over "No Adapt" at mask ratios of 0.2, 0.4, 0.6, and 0.8, along with the average improvement.
           </div>
         </div>
       </section>
