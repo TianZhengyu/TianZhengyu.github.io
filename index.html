@@ -345,16 +345,16 @@
           </div>
         </div>
 
-        <!-- 方法 2：MMTTA，图片在上，文字在下 -->
+        <!-- 方法 2：Test-Time Adaptation，图片在上，文字在下 -->
         <div class="method-block" style="margin-top:32px">
           <div class="figure-box small">
-            <img src="MMTTA.png" alt="MMTTA module illustration" />
+            <img src="MMTTA.png" alt="Test-Time Adaptation illustration" />
           </div>
           <div class="fig-caption">
             Figure 2: Samples with weak distribution shifts and rich multimodal information are selected for adaptation, while the remaining samples are retained until the next iteration. Then, mutual information sharing across modalities is performed to match the information between different modalities effectively.
           </div>
           <div class="section-content">
-            <h3 class="section-subtitle">2. Test-Time Adaptation with Entropy-Based Filtering</h3>
+            <h3 class="section-subtitle">2. Test-Time Adaptation</h3>
             <p>
               <strong>Motivation &amp; Challenge:</strong> When acquiring emotion-related physiological signals, subjects must remain seated for extended periods while exposed to high-intensity stimuli to generate emotional responses. However, uncontrollable factors such as perspiration, changes in posture, or the drying of the conductive gel may cause sensors to slip or experience poor contact, resulting in incomplete multimodal signal acquisition to varying degrees. Such incompleteness amplifies the distribution shifts in emotion-related physiological data and ultimately leads to degraded model performance. Emotion-related physiological data also inherently exhibit distribution shifts between the training and test sets. These shifts arise from within-subject variations in emotional state, cognitive load, and environmental conditions across sessions. The unavoidable presence of missing data disrupts the original data patterns, skews feature distributions, and introduces bias, which collectively amplify the existing distribution shifts in physiological data. This amplification makes it increasingly difficult for pre-trained models to capture emotional patterns accurately. Existing methods mainly focus on training-phase strategies to deal with the missing data problem. For example, previous work proposes feature-level and decision-level fusion methods to address missingness in multimodal emotion recognition, but these approaches usually require retraining to adapt to new missing data patterns, which limits their flexibility. A more promising direction is to mitigate the effects of missing data by fine-tuning the model during the testing phase. Recent test-time adaptation methods adjust self-attention modules to assign lower weights to the corrupted modality when dealing with unimodal corruption. However, these methods cannot handle multimodal corruption where multiple physiological signals are simultaneously missing. Therefore, mitigating the negative impact of missing multimodal data on emotion recognition models remains a significant practical challenge.
             </p>
