@@ -176,6 +176,19 @@
       background:rgba(15,23,42,0.06);
     }
 
+    /* Motivation / Our Approach 标签样式 */
+    .inline-tag{
+      display:inline-block;
+      padding:2px 10px;
+      margin-right:6px;
+      border-radius:999px;
+      background:#e5e7eb;
+      color:#111827;
+      font-weight:700;
+      font-size:14px;
+      letter-spacing:0.02em;
+    }
+
     .section-content{
       max-width:900px;
       margin:0 auto;
@@ -360,161 +373,4 @@
         <h2 class="section-title">Abstract</h2>
         <div class="section-content">
           <p>
-             Emotion recognition based on physiological signals plays a vital role in psychological health and human–computer interaction, particularly with the substantial advances in multimodal emotion recognition techniques. However, two key challenges remain unresolved: <strong>1) how to effectively model the intra-modal long-range dependencies and inter-modal correlations in multimodal physiological emotion signals</strong>, and <strong>2) how to address the performance limitations resulting from missing multimodal data</strong>. In this paper, we propose <strong>a multimodal bidirectional Mamba (BiMamba) network with test-time adaptation (TTA)</strong> for emotion recognition named <strong>BiM-TTA</strong>. Specifically, <strong>BiM-TTA</strong> consists of <strong>a multimodal BiMamba network</strong> and <strong>a multimodal TTA</strong>. The former includes <strong>intra-modal and inter-modal BiMamba modules</strong>, which model long-range dependencies along the time dimension and capture cross-modal correlations along the channel dimension, respectively. The latter (TTA) mitigates the amplified distribution shifts caused by missing multimodal data through <strong>two-level entropy-based sample filtering</strong> and <strong>mutual information sharing across modalities</strong>. By addressing these challenges, BiM-TTA achieves <strong>state-of-the-art</strong> results on two multimodal emotion datasets.
-          </p>
-        </div>
-      </section>
-
-      <!-- 2. Methodology 区：白 -->
-      <section class="section">
-        <h2 class="section-title">Methodology</h2>
-
-        <!-- 方法 1：Multimodal BiMamba Network -->
-        <div class="method-block">
-          <div class="figure-box small">
-            <img src="BiMamba-module.png" alt="BiMamba backbone illustration" />
-          </div>
-          <div class="fig-caption">
-            Figure 1: The intra- and inter-modal BiMamba modules capture and fuse the features of different modalities, respectively. "Concat" represents the concatenation of multiple feature vectors u<sub>1</sub>, u<sub>2</sub>, ..., u<sub>M</sub>. T denotes matrix transposition.
-          </div>
-          <div class="section-content">
-            <h3 class="section-subtitle">1. Multimodal BiMamba Network</h3>
-            <p>
-              <strong>Motivation &amp; Challenge:</strong>
-              <strong> As a typical form of time-series data, emotion-related physiological signals exhibit long-range dependencies reflecting the gradual accumulation of emotional changes.</strong>
-              Emotions such as anxiety develop progressively and require a duration for their physiological manifestations to accumulate. This accumulation indicates that emotional changes are not just an instantaneous state but a process that evolves.
-              <strong> Inter-modal correlations are also evident in the way different modalities respond.</strong>
-              For instance, increases in EEG activity during emotional arousal are often accompanied by galvanic skin response conductance peaks and decreases in electrocardiogram heart-rate variability.
-              <strong> Traditional backbone networks have limitations in modeling intra-modal long-range dependencies and inter-modal correlations.</strong>
-            </p>
-            <p>
-              <strong>Our Approach:</strong>
-              Mamba’s selective input mechanism efficiently models long-range dependencies, and its explicit global state variables as part of its state space model (SSM) capture inter-modal correlations simultaneously, thereby effectively addressing the first challenge.
-              <strong> We design a multimodal BiMamba network, where the intra-modal BiMamba module models long-range dependencies within modalities, and the inter-modal BiMamba module captures inter-modal correlations.</strong>
-            </p>
-          </div>
-        </div>
-
-        <!-- 方法 2：MMTTA -->
-        <div class="method-block" style="margin-top:32px">
-          <div class="figure-box small">
-            <img src="MMTTA.png" alt="MMTTA module illustration" />
-          </div>
-          <div class="fig-caption">
-            Figure 2: Samples with weak distribution shifts and rich multimodal information are selected for adaptation, while the remaining samples are retained until the next iteration. Then, mutual information sharing across modalities is performed to match the information between different modalities effectively.
-          </div>
-          <div class="section-content">
-            <h3 class="section-subtitle">2. Test-Time Adaptation</h3>
-            <p>
-              <strong>Motivation &amp; Challenge:</strong>
-              When acquiring emotion-related physiological signals, subjects must remain seated for extended periods while exposed to high-intensity stimuli to generate emotional responses.
-              <strong> However, uncontrollable factors such as perspiration, changes in posture, or the drying of the conductive gel may cause sensors to slip or experience poor contact, resulting in incomplete multimodal signal acquisition to varying degrees.</strong>
-              Such incompleteness amplifies the distribution shifts in emotion-related physiological data and ultimately leads to degraded model performance. Emotion-related physiological data also inherently exhibit distribution shifts between the training and test sets. These shifts arise from within-subject variations in emotional state, cognitive load, and environmental conditions across sessions. The unavoidable presence of missing data disrupts the original data patterns, skews feature distributions, and introduces bias, which collectively amplify the existing distribution shifts in physiological data.
-              <strong> This amplification makes it increasingly difficult for pre-trained models to capture emotional patterns accurately.</strong>
-              <strong> Existing methods mainly focus on training-phase strategies to deal with the missing data problem.</strong>
-            </p>
-            <p>
-              <strong>Our Approach:</strong>
-              TTA requires only minimal parameter fine-tuning to mitigate distribution shifts, thus resolving the second challenge.
-              <strong> We propose a multimodal TTA method that alleviates the negative impact of amplified distribution shifts caused by missing multimodal data on model performance.</strong>
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- 3. Experimental Results 区：灰 -->
-      <section class="section section--soft">
-        <h2 class="section-title">Experimental Results</h2>
-
-        <!-- 小节 1：experiment-1.png -->
-        <div class="method-block">
-          <div class="figure-box small">
-            <img src="experiment-1.png" class="exp1-img" alt="Experimental results overview" />
-          </div>
-          <div class="fig-caption">
-            Table 1: Comparison of emotion recognition baselines on DEAP and MAHNOB-HCI in terms of valence and arousal accuracy.
-          </div>
-          <div class="section-content">
-            <h3 class="section-subtitle">1. Experiments without Missing Data</h3>
-            <p>
-              For experiments without missing data, as shown in Table 1, BiM-TTA models long-range dependencies within modalities and correlations between modalities through the intra-modal BiMamba module and inter-modal BiMamba module. It achieves the best performance on both datasets, demonstrating the superiority of the multimodal BiMamba backbone network.
-            </p>
-          </div>
-        </div>
-
-        <!-- 小节 2：experiment-2.1.png 和 experiment-2.2.png -->
-        <div class="method-block" style="margin-top:32px">
-          <div class="figure-box small">
-            <img src="experiment-2.1.png" alt="Ablation study part 1" />
-          </div>
-          <div class="figure-box small" style="margin-top:16px">
-            <img src="experiment-2.2.png" alt="Ablation study part 2" />
-          </div>
-          <div class="fig-caption">
-            Table 2 &amp; 3: Comparative analysis of accuracy for different TTA methods on DEAP and Mahnob-HCI with missing data, relative to the baseline method "No Adapt". The No Adapt baseline corresponds to a model pretrained on the source domain and directly evaluated on the target domain without any adaptation. Results report the improvement rate of each TTA method over "No Adapt" at mask ratios of 0.2, 0.4, 0.6, and 0.8, along with the average improvement.
-          </div>
-          <div class="section-content">
-            <h3 class="section-subtitle">2. Experiments with Missing Data</h3>
-            <p>
-              For experiments with missing data, Table 2 &amp; 3 present the performance improvements of BiM-TTA and other TTA methods relative to the "No Adapt" method. "No Adapt" denotes a model trained on the source domain and subsequently evaluated on the target domain containing missing data, without any adaptation. Our method uses two-level entropy-based sample filtering to avoid the model directly adapting to samples with strong distribution shifts and limited multimodal information. Furthermore, we utilize inter-modal information sharing to align the information between different modalities, facilitating the full adaptation of the model.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- 4. Video Presentation 区：白 -->
-      <section class="section">
-        <h2 class="section-title">Video Presentation</h2>
-        <div class="video-center">
-          <div class="video-tabs">
-            <div class="video-tab is-active">English</div>
-            <div class="video-tab">中文讲解</div>
-          </div>
-
-          <div class="video-box">
-            <video controls>
-              <source src="video_en.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-
-          <div class="btn-row">
-            <a class="btn btn-paper" href="#">Download English Slides (.pptx)</a>
-            <a class="btn btn-code" href="#">下载中文PPT (.pptx)</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- 5. Poster 区：灰 -->
-      <section class="section section--soft">
-        <h2 class="section-title">Poster</h2>
-        <div class="poster-frame">
-          <iframe
-            class="pdf-frame pdf-frame-tall"
-            src="poster.pdf#view=FitH">
-          </iframe>
-        </div>
-      </section>
-
-      <!-- 6. BibTeX 区：白 -->
-      <section class="section">
-        <h2 class="section-title">BibTeX</h2>
-        <pre class="bibtex-block">
-@inproceedings{
-jia2025a,
-title={A Multimodal BiMamba Network with Test-Time Adaptation for Emotion Recognition Based on Physiological Signals},
-author={Ziyu Jia and Tingyu Du and Zhengyu Tian and Hongkai Li and Yong Zhang and Chenyu Liu},
-booktitle={The Thirty-ninth Annual Conference on Neural Information Processing Systems},
-year={2025},
-url={https://openreview.net/forum?id=3vLp3J7540}
-}
-        </pre>
-      </section>
-    </main>
-
-    <footer>
-      Built with simple HTML and CSS. Replace placeholder texts, images, video and poster links with your own content.
-    </footer>
-  </div>
-</body>
-</html>
+             Emotion recognition based on physiological signals plays a vital role in psychological health and human–computer interaction, particularly with the substantial advances in multimodal emotion recognition techniques. However, two key challenges remain unresolved: <strong>1) how to effectively model the intra-modal long-range dependencies and inter-modal correlations in multimodal physiological emotion signals</strong>, and <strong>2) how to address the performance limitations resulting from missing multimodal data</strong>. In this paper, we propose <strong>a multimodal bidirectional Mamba (BiMamba) network with test-time adaptation (TTA)</strong> for emotion recognition named <strong>BiM-TTA</strong>. Specifically, <strong>BiM-TTA</strong> consists of <strong>a multimodal BiMamba network</strong> and <strong>a multimodal TTA</strong>. The former includes <strong>intra-modal and inter-modal BiMamba modules</strong>, which model long-range dependencies along the time dimension and capture cross-modal correlations along the channel dimension, respectively. The latter (TTA) mitigates the amplified distribution shifts caused by missing multimodal data through <strong>two-level entropy-based sample filtering</strong> and <strong>mutual information sharing acro
