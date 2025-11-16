@@ -21,21 +21,234 @@
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
     }
-    .container{ max-width:var(--max-w); margin:0 auto; padding:48px 20px; display:flex; flex-direction:column; align-items:center; }
+    .container{
+      max-width:var(--max-w);
+      margin:0 auto;
+      padding:48px 20px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
     header{ text-align:center; width:100%; }
-    h1{ margin:0; font-weight:800; line-height:1.04; letter-spacing:-0.02em; font-size:clamp(28px,6.5vw,56px); margin-bottom:18px; }
-    .authors{ color:var(--muted); font-size:14px; line-height:1.5; margin-bottom:8px; }
-    .affil{ color:var(--muted); font-size:13px; margin-top:8px; }
-    .meta{ margin-top:6px; color:var(--muted); font-size:13px; }
-    .btns{ margin-top:18px; display:flex; gap:12px; justify-content:center; align-items:center; flex-wrap:wrap; }
-    .btn{ display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border-radius:999px; text-decoration:none; font-weight:600; font-size:14px; box-shadow:0 6px 18px rgba(15,23,42,0.06); }
-    .btn-paper{ background:var(--accent); color:#fff; }
-    .btn-code{ background:transparent; color:var(--accent); border:1px solid rgba(17,24,39,0.12); }
-    main{ width:100%; margin-top:36px; display:flex; justify-content:center; }
-    .figure-box{ width:100%; border-radius:18px; border:3px dashed rgba(107,114,128,0.25); padding:22px; box-sizing:border-box; display:flex; justify-content:center; align-items:center; background:linear-gradient(180deg,rgba(255,255,255,0.6),rgba(255,255,255,0.4)); }
-    .figure-box img{ max-width:100%; height:auto; border-radius:8px; display:block; box-shadow:inset 0 -6px 18px rgba(0,0,0,0.03); }
-    footer{ margin-top:22px; color:var(--muted); font-size:13px; text-align:center; }
-    @media (max-width:640px){ .container{ padding:28px 14px;} h1{ font-size:clamp(22px,8.5vw,34px);} .authors{font-size:13px;} .btn{padding:8px 12px;font-size:13px;} }
+    h1{
+      margin:0;
+      font-weight:800;
+      line-height:1.04;
+      letter-spacing:-0.02em;
+      font-size:clamp(28px,6.5vw,56px);
+      margin-bottom:18px;
+    }
+    .authors{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.5;
+      margin-bottom:8px;
+    }
+    .affil{
+      color:var(--muted);
+      font-size:13px;
+      margin-top:8px;
+    }
+    .meta{
+      margin-top:6px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .btns{
+      margin-top:18px;
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 16px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:600;
+      font-size:14px;
+      box-shadow:0 6px 18px rgba(15,23,42,0.06);
+    }
+    .btn-paper{
+      background:var(--accent);
+      color:#fff;
+    }
+    .btn-code{
+      background:transparent;
+      color:var(--accent);
+      border:1px solid rgba(17,24,39,0.12);
+    }
+
+    main{
+      width:100%;
+      margin-top:36px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:56px;
+    }
+
+    .figure-box{
+      width:100%;
+      border-radius:18px;
+      border:3px dashed rgba(107,114,128,0.25);
+      padding:22px;
+      box-sizing:border-box;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(180deg,rgba(255,255,255,0.6),rgba(255,255,255,0.4));
+    }
+    .figure-box img{
+      max-width:100%;
+      height:auto;
+      border-radius:8px;
+      display:block;
+      box-shadow:inset 0 -6px 18px rgba(0,0,0,0.03);
+    }
+
+    /* 通用小节样式 */
+    .section{
+      width:100%;
+    }
+    .section-title{
+      text-align:center;
+      font-size:26px;
+      font-weight:700;
+      margin:0 0 18px;
+    }
+    .section-subtitle{
+      font-size:18px;
+      font-weight:700;
+      margin:0 0 8px;
+    }
+    .section-content{
+      max-width:900px;
+      margin:0 auto;
+      font-size:14px;
+      line-height:1.8;
+      color:var(--muted);
+    }
+    .section--soft{
+      padding:32px 20px;
+      border-radius:18px;
+      background:#f9fafb;
+    }
+
+    /* 双栏布局：方法图 + 文本 */
+    .two-col{
+      display:flex;
+      flex-wrap:wrap;
+      gap:32px;
+      align-items:flex-start;
+      margin-top:24px;
+    }
+    .col{
+      flex:1 1 280px;
+    }
+    .figure-box.small{
+      padding:16px;
+    }
+    .fig-caption{
+      text-align:center;
+      font-size:13px;
+      color:var(--muted);
+      margin-top:8px;
+    }
+
+    /* 视频部分 */
+    .video-center{
+      max-width:900px;
+      margin:0 auto;
+      text-align:center;
+    }
+    .video-tabs{
+      display:inline-flex;
+      border-radius:999px;
+      border:1px solid #e5e7eb;
+      overflow:hidden;
+      margin-bottom:18px;
+    }
+    .video-tab{
+      padding:8px 18px;
+      font-size:14px;
+      cursor:default;
+      color:var(--muted);
+      white-space:nowrap;
+    }
+    .video-tab.is-active{
+      background:#111827;
+      color:#fff;
+    }
+    .video-box{
+      width:100%;
+      margin:0 auto 12px;
+    }
+    .video-box video{
+      width:100%;
+      border-radius:14px;
+      box-shadow:0 12px 32px rgba(15,23,42,0.25);
+      background:#000;
+    }
+    .btn-row{
+      margin-top:10px;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:12px;
+    }
+
+    /* Poster 区域 */
+    .poster-frame{
+      width:100%;
+      max-width:1000px;
+      height:480px;
+      margin:0 auto;
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid #e5e7eb;
+      background:#f9fafb;
+    }
+    .poster-frame iframe{
+      width:100%;
+      height:100%;
+      border:0;
+    }
+
+    /* BibTeX 区域 */
+    .bibtex-block{
+      max-width:1000px;
+      margin:0 auto;
+      background:#111827;
+      color:#e5e7eb;
+      padding:18px 20px;
+      border-radius:14px;
+      font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New";
+      font-size:13px;
+      overflow-x:auto;
+      box-sizing:border-box;
+    }
+
+    footer{
+      margin-top:32px;
+      color:var(--muted);
+      font-size:13px;
+      text-align:center;
+    }
+
+    @media (max-width:640px){
+      .container{ padding:28px 14px;}
+      h1{ font-size:clamp(22px,8.5vw,34px);}
+      .authors{font-size:13px;}
+      .btn{padding:8px 12px;font-size:13px;}
+      main{ gap:40px;}
+      .two-col{ flex-direction:column;}
+      .poster-frame{ height:360px;}
+    }
   </style>
 </head>
 <body>
@@ -68,13 +281,114 @@
     </header>
 
     <main>
+      <!-- 顶部方法大图 -->
       <section class="figure-box">
+        <!-- 换成你的总览图 -->
         <img src="figure.png" alt="paper figure" />
+      </section>
+
+      <!-- Abstract 区 -->
+      <section class="section section--soft">
+        <h2 class="section-title">Abstract</h2>
+        <div class="section-content">
+          <p>
+            在这里填写论文摘要内容。当前为占位文本，用于展示布局效果。你可以直接把正式英文摘要粘贴进这一段。
+          </p>
+        </div>
+      </section>
+
+      <!-- Methodology 区 -->
+      <section class="section">
+        <h2 class="section-title">Methodology</h2>
+
+        <!-- 方法 1：比如 MBiM Backbone -->
+        <div class="two-col">
+          <div class="col">
+            <div class="figure-box small">
+              <!-- 换成方法图 1 -->
+              <img src="method1.png" alt="Method 1 illustration" />
+            </div>
+            <div class="fig-caption">
+              Figure 1 你的框架总览示意图说明
+            </div>
+          </div>
+          <div class="col">
+            <h3 class="section-subtitle">1. MBiM Backbone</h3>
+            <p class="section-content">
+              这里用一两段话介绍 MBiM 作为多模态骨干网络的整体结构和设计动机，例如模态内长程依赖建模、模态间交互等。
+            </p>
+          </div>
+        </div>
+
+        <!-- 方法 2：比如 Test-Time Adaptation -->
+        <div class="two-col" style="margin-top:32px">
+          <div class="col">
+            <div class="figure-box small">
+              <!-- 换成方法图 2 -->
+              <img src="method2.png" alt="Method 2 illustration" />
+            </div>
+            <div class="fig-caption">
+              Figure 2 Test-Time Adaptation 模块示意图
+            </div>
+          </div>
+          <div class="col">
+            <h3 class="section-subtitle">2. Test-Time Adaptation with Entropy-Based Filtering</h3>
+            <p class="section-content">
+              这里介绍 TTA 的目标函数、两级熵样本筛选思想以及如何与 MBiM 进行协同。先写中文草稿也没有问题，只是占位用。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Video Presentation 区 -->
+      <section class="section section--soft">
+        <h2 class="section-title">Video Presentation</h2>
+        <div class="video-center">
+          <div class="video-tabs">
+            <div class="video-tab is-active">English</div>
+            <div class="video-tab">中文讲解</div>
+          </div>
+
+          <div class="video-box">
+            <!-- 把 src 换成你的 mp4 链接 或者暂时留空 -->
+            <video controls>
+              <source src="video_en.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <div class="btn-row">
+            <a class="btn btn-paper" href="#">Download English Slides (.pptx)</a>
+            <a class="btn btn-code" href="#">下载中文PPT (.pptx)</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Poster 区 -->
+      <section class="section">
+        <h2 class="section-title">Poster</h2>
+        <div class="poster-frame">
+          <!-- 如果是 pdf 就写 poster.pdf，如果是在线链接也可以 -->
+          <iframe src="poster.pdf"></iframe>
+        </div>
+      </section>
+
+      <!-- BibTeX 区 -->
+      <section class="section section--soft">
+        <h2 class="section-title">BibTeX</h2>
+        <pre class="bibtex-block">
+@inproceedings{du_mbm_tta_2025,
+  title   = {A Multimodal BiMamba Network with Test-Time Adaptation for Emotion Recognition Based on Physiological Signals},
+  author  = {Jia, Ziyu and Du, Tingyu and Tian, Zhengyu and Li, Hongkai and Zhang, Yong and Liu, Chenyu},
+  booktitle = {NeurIPS},
+  year    = {2025}
+}
+        </pre>
       </section>
     </main>
 
     <footer>
-      Built with simple HTML/CSS — 保存为 index.html 并把图片放在同级目录即可。
+      Built with simple HTML and CSS. Replace placeholder texts, images, video and poster links with your own content.
     </footer>
   </div>
 </body>
