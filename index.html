@@ -37,15 +37,19 @@
       text-align:center;
       width:100%;
     }
-    /* 标题：缩小字号 + 两行布局 */
+
+    /* ✅ 标题：压成两行 + 字号再小一点 */
     h1{
-      margin:0 auto 18px;
+      margin:0;
       font-weight:800;
       line-height:1.12;
       letter-spacing:-0.015em;
-      font-size:clamp(24px,4.8vw,46px);
+      font-size:clamp(22px,3.6vw,40px);
+      margin-bottom:14px;
       color:var(--text);
       max-width:1100px;
+      margin-left:auto;
+      margin-right:auto;
       text-wrap:balance;
     }
 
@@ -107,7 +111,7 @@
     }
 
     .btns{
-      margin-top:18px;
+      margin-top:16px;
       display:flex;
       gap:12px;
       justify-content:center;
@@ -146,7 +150,7 @@
 
     main{
       width:100%;
-      margin-top:36px;
+      margin-top:32px;
       display:flex;
       flex-direction:column;
       align-items:center;
@@ -175,19 +179,6 @@
     .paper-figure{
       max-height:80vh;
       width:auto;
-    }
-
-    .pdf-frame{
-      width:100%;
-      border:0;
-      border-radius:8px;
-      box-shadow:inset 0 -6px 18px rgba(0,0,0,0.03);
-    }
-    .pdf-frame-wide{
-      height:80vh;
-    }
-    .pdf-frame-tall{
-      height:680px;
     }
 
     .exp1-img{
@@ -389,10 +380,9 @@
       .container{
         padding:28px 14px;
       }
-      /* 小屏标题再收一点 */
       h1{
-        font-size:clamp(20px,7.2vw,32px);
-        line-height:1.15;
+        font-size:clamp(20px,5.2vw,30px);
+        line-height:1.18;
       }
       .authors{
         font-size:14px;
@@ -403,12 +393,6 @@
       }
       main{
         gap:40px;
-      }
-      .pdf-frame-wide{
-        height:90vh;
-      }
-      .pdf-frame-tall{
-        height:520px;
       }
       .paper-figure{
         max-height:70vh;
@@ -425,6 +409,7 @@
 <body>
   <div class="container">
     <header>
+      <!-- ✅ 只留一个 <br>，确保结构就是两行 -->
       <h1>
         A Multimodal BiMamba Network with Test-Time Adaptation<br>
         for Emotion Recognition Based on Physiological Signals
