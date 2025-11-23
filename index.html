@@ -192,21 +192,52 @@
       height:auto;
     }
 
-    /* 顶部关键段落高亮卡片 */
-    .figure-caption-top{
-      max-width:900px;
+    /* Contribution 高亮卡片 */
+    .contrib-box{
+      max-width:980px;
       margin:16px auto 0;
-      padding:14px 18px;
-      font-size:17px;
-      line-height:1.8;
-      color:#111827;
-      background:#fefce8;
-      border-radius:14px;
-      border:1px solid #facc15;
-      box-shadow:0 10px 30px rgba(15,23,42,0.08);
+      padding:18px 22px;
+      background:linear-gradient(180deg,#fefce8,#fff7ed);
+      border-radius:16px;
+      border:1.5px solid #f59e0b;
+      box-shadow:0 12px 34px rgba(15,23,42,0.10);
+      text-align:left;
     }
-    .figure-caption-top strong{
-      font-weight:700;
+    .contrib-title{
+      font-size:18px;
+      font-weight:800;
+      color:#111827;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      margin-bottom:10px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .contrib-badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:22px;
+      height:22px;
+      border-radius:999px;
+      background:#111827;
+      color:#fff;
+      font-size:12px;
+      font-weight:800;
+    }
+    .contrib-list{
+      margin:0;
+      padding-left:20px;
+      font-size:17px;
+      line-height:1.75;
+      color:#111827;
+    }
+    .contrib-list li{
+      margin:8px 0;
+    }
+    .contrib-list strong{
+      font-weight:800;
     }
 
     .section{
@@ -341,13 +372,6 @@
       font-weight:600;
     }
 
-    footer{
-      margin-top:32px;
-      color:var(--muted);
-      font-size:14px;
-      text-align:center;
-    }
-
     @media (max-width:640px){
       .container{
         padding:28px 14px;
@@ -373,6 +397,12 @@
       }
       .paper-figure{
         max-height:70vh;
+      }
+      .contrib-box{
+        padding:14px 16px;
+      }
+      .contrib-list{
+        font-size:16px;
       }
     }
   </style>
@@ -428,7 +458,6 @@
       <div class="btns">
         <a class="btn btn-paper" href="https://neurips.cc/virtual/2025/loc/san-diego/poster/119989">
           <span class="btn-icon" aria-hidden="true">
-            <!-- PDF 图标 -->
             <svg viewBox="0 0 24 24" fill="none">
               <rect x="4" y="3" width="14" height="18" rx="2" ry="2" stroke="white" stroke-width="1.6"/>
               <path d="M14 3v4h4" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
@@ -439,7 +468,6 @@
         </a>
         <a class="btn btn-code" href="https://anonymous.4open.science/r/BiM-TTA-B604">
           <span class="btn-icon" aria-hidden="true">
-            <!-- GitHub 风格线框图标 -->
             <svg viewBox="0 0 24 24" fill="none">
               <path d="M12 3c-4.4 0-8 3.6-8 8 0 3.5 2.3 6.4 5.5 7.4-.1-.4-.1-.8-.1-1.3v-1.2c-2 .4-2.5-.9-2.5-.9-.3-.7-.8-1-0.8-1-.6-.4 0-.4 0-.4.6 0.1 1 .7 1 .7.5.9 1.4.6 1.8.4 0-.4.2-.7.3-.9-1.6-.2-3.3-.8-3.3-3.5 0-.8.3-1.4.7-1.9-.1-.2-.3-.9 0-1.8 0 0 .6-.2 2 .7.6-.2 1.3-.3 2-.3.7 0 1.4.1 2 .3 1.4-.9 2-.7 2-.7.3.9.1 1.6 0 1.8.5.5.7 1.1.7 1.9 0 2.7-1.7 3.3-3.3 3.5.2.2.3.6.3 1.1v1.6c0 .5 0 .9-.1 1.3 3.2-1.1 5.5-4 5.5-7.4 0-4.4-3.6-8-8-8z"
                     stroke="#111827" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
@@ -451,21 +479,34 @@
     </header>
 
     <main>
-      <!-- 顶部方法大图：使用同目录下的 paper figure.png -->
+      <!-- 顶部方法大图 -->
       <section class="figure-box">
         <img src="paper%20figure.png" alt="Paper overview figure" class="paper-figure" />
       </section>
 
-      <!-- 顶部 figure 描述高亮卡片 -->
-      <div class="figure-caption-top">
-        <strong>
-          In this paper, we propose a multimodal BiMamba network with TTA for emotion recognition.
-          The multimodal BiMamba network effectively captures intra-modal dependencies and inter-modal correlations of multimodal physiological signals.
-          TTA consists of two-level entropy-based sample filtering and mutual information sharing across modalities, which together achieve smooth adaptation to the target domain and reduce distribution shifts across modalities, thereby alleviating the negative impact of amplified distribution shifts caused by missing multimodal data.
-        </strong>
+      <!-- Contribution 高亮三点 -->
+      <div class="contrib-box">
+        <div class="contrib-title">
+          <span class="contrib-badge">C</span>
+          Key Contributions
+        </div>
+        <ol class="contrib-list">
+          <li>
+            <strong>Multimodal BiMamba backbone.</strong>
+            A multimodal BiMamba network is designed, where the intra-modal BiMamba module models long-range dependencies within modalities and the inter-modal BiMamba module captures inter-modal correlations.
+          </li>
+          <li>
+            <strong>Multimodal test-time adaptation.</strong>
+            A multimodal TTA method is proposed to alleviate the negative impact of amplified distribution shifts caused by missing multimodal data on model performance.
+          </li>
+          <li>
+            <strong>State-of-the-art validation.</strong>
+            Evaluation on two multimodal emotion datasets confirms state-of-the-art performance and verifies the effectiveness of BiM-TTA.
+          </li>
+        </ol>
       </div>
 
-      <!-- 1. Abstract 区：灰 -->
+      <!-- 1. Abstract 区 -->
       <section class="section section--soft">
         <h2 class="section-title">Abstract</h2>
         <div class="section-content">
@@ -475,11 +516,10 @@
         </div>
       </section>
 
-      <!-- 2. Methodology 区：白 -->
+      <!-- 2. Methodology 区 -->
       <section class="section">
         <h2 class="section-title">Methodology</h2>
 
-        <!-- 方法 1：Multimodal BiMamba Network -->
         <div class="method-block">
           <div class="figure-box small">
             <img src="BiMamba-module.png" alt="BiMamba backbone illustration" />
@@ -505,7 +545,6 @@
           </div>
         </div>
 
-        <!-- 方法 2：MMTTA -->
         <div class="method-block" style="margin-top:32px">
           <div class="figure-box small">
             <img src="MMTTA.png" alt="MMTTA module illustration" />
@@ -532,11 +571,10 @@
         </div>
       </section>
 
-      <!-- 3. Experimental Results 区：灰 -->
+      <!-- 3. Experimental Results 区 -->
       <section class="section section--soft">
         <h2 class="section-title">Experimental Results</h2>
 
-        <!-- 小节 1 -->
         <div class="method-block">
           <div class="section-content">
             <h3 class="section-subtitle">1. Experiments without Missing Data</h3>
@@ -554,7 +592,6 @@
           </div>
         </div>
 
-        <!-- 小节 2 -->
         <div class="method-block" style="margin-top:32px">
           <div class="section-content">
             <h3 class="section-subtitle">2. Experiments with Missing Data</h3>
@@ -576,7 +613,7 @@
         </div>
       </section>
 
-      <!-- 4. Video Presentation 区：白 -->
+      <!-- 4. Video Presentation 区 -->
       <section class="section">
         <h2 class="section-title">Video Presentation</h2>
         <div class="video-center">
@@ -599,7 +636,7 @@
         </div>
       </section>
 
-      <!-- 5. Poster 区：灰 -->
+      <!-- 5. Poster 区 -->
       <section class="section section--soft">
         <h2 class="section-title">Poster</h2>
         <div class="poster-frame">
@@ -610,7 +647,7 @@
         </div>
       </section>
 
-      <!-- 6. BibTeX 区：白 -->
+      <!-- 6. BibTeX 区 -->
       <section class="section">
         <h2 class="section-title">BibTeX</h2>
         <pre class="bibtex-block">
