@@ -38,13 +38,13 @@
       width:100%;
     }
 
-    /* ✅ 标题：压成两行 + 字号再小一点 */
+    /* ✅ 标题：再小一点，稳两行 */
     h1{
       margin:0;
       font-weight:800;
-      line-height:1.12;
+      line-height:1.14;
       letter-spacing:-0.015em;
-      font-size:clamp(22px,3.6vw,40px);
+      font-size:clamp(20px,3.2vw,36px);
       margin-bottom:14px;
       color:var(--text);
       max-width:1100px;
@@ -381,8 +381,8 @@
         padding:28px 14px;
       }
       h1{
-        font-size:clamp(20px,5.2vw,30px);
-        line-height:1.18;
+        font-size:clamp(18px,4.8vw,28px);
+        line-height:1.2;
       }
       .authors{
         font-size:14px;
@@ -409,7 +409,6 @@
 <body>
   <div class="container">
     <header>
-      <!-- ✅ 只留一个 <br>，确保结构就是两行 -->
       <h1>
         A Multimodal BiMamba Network with Test-Time Adaptation<br>
         for Emotion Recognition Based on Physiological Signals
