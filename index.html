@@ -65,7 +65,7 @@
       font-weight:700;
     }
 
-    /* 1-7 对应 7 种颜色，作者角标和单位编号共用 */
+    /* 颜色编号定义（现在实际用到 1-5） */
     .tag1{ color:#ef4444; }   /* 1 - red */
     .tag2{ color:#3b82f6; }   /* 2 - blue */
     .tag3{ color:#10b981; }   /* 3 - green */
@@ -388,29 +388,17 @@
       <div class="authors">
         <div class="author-line">
           Ziyu Jia
-          <sup>
-            <span class="tag1">1</span>, <span class="tag2">2</span>
-          </sup>,
+          <sup><span class="tag1">1</span></sup>,
           Tingyu Du
-          <sup>
-            <span class="tag3">3</span>, <span class="tag4">4</span>
-          </sup>,
+          <sup><span class="tag2">2</span></sup>,
           Zhengyu Tian
-          <sup>
-            <span class="tag5">5</span>
-          </sup>,
+          <sup><span class="tag3">3</span></sup>,
           Hongkai Li
-          <sup>
-            <span class="tag5">5</span>
-          </sup>,
+          <sup><span class="tag3">3</span></sup>,
           Yong Zhang
-          <sup>
-            <span class="tag6">6*</span>
-          </sup>,
+          <sup><span class="tag4">4</span></sup>,
           Chenyu Liu
-          <sup>
-            <span class="tag7">7*</span>
-          </sup>
+          <sup><span class="tag5">5</span></sup>
         </div>
 
         <div class="venue-tag">NEURIPS 2025</div>
@@ -421,32 +409,20 @@
         </div>
         <div class="affil">
           <span class="aff-num tag2">2</span>
-          Shanghai Key Laboratory of Data Science
+          Institute of Computing Technology, Chinese Academy of Sciences
         </div>
         <div class="affil">
           <span class="aff-num tag3">3</span>
-          Beijing Key Laboratory of Mobile Computing and Pervasive Devices, Institute of Computing Technology, Chinese Academy of Sciences
+          Beijing Jiaotong University
         </div>
         <div class="affil">
           <span class="aff-num tag4">4</span>
-          University of Chinese Academy of Sciences
+          Huzhou University
         </div>
         <div class="affil">
           <span class="aff-num tag5">5</span>
-          School of Computer Science and Technology, Beijing Jiaotong University
+          Nanyang Technological University
         </div>
-        <div class="affil">
-          <span class="aff-num tag6">6</span>
-          School of Information Engineering, Huzhou University
-        </div>
-        <div class="affil">
-          <span class="aff-num tag7">7</span>
-          College of Computing and Data Science, Nanyang Technological University
-        </div>
-      </div>
-
-      <div class="meta">
-        <div>*Corresponding Author</div>
       </div>
 
       <div class="btns">
@@ -560,7 +536,7 @@
       <section class="section section--soft">
         <h2 class="section-title">Experimental Results</h2>
 
-        <!-- 小节 1：先小标题，再图，再 caption，再大段描述 -->
+        <!-- 小节 1 -->
         <div class="method-block">
           <div class="section-content">
             <h3 class="section-subtitle">1. Experiments without Missing Data</h3>
@@ -578,7 +554,7 @@
           </div>
         </div>
 
-        <!-- 小节 2：同样结构 -->
+        <!-- 小节 2 -->
         <div class="method-block" style="margin-top:32px">
           <div class="section-content">
             <h3 class="section-subtitle">2. Experiments with Missing Data</h3>
