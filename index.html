@@ -37,30 +37,17 @@
       text-align:center;
       width:100%;
     }
-
-    /* ====== 标题：桌面端两行 + 缩小字号避免溢出 ====== */
-    h1.paper-title{
+    /* 标题：缩小字号 + 两行布局 */
+    h1{
       margin:0 auto 18px;
       font-weight:800;
-      line-height:1.1;
+      line-height:1.12;
       letter-spacing:-0.015em;
-      font-size:clamp(22px,4.8vw,44px);
+      font-size:clamp(24px,4.8vw,46px);
       color:var(--text);
       max-width:1100px;
       text-wrap:balance;
     }
-    .title-line{
-      display:block;
-    }
-    .title-line.nowrap{
-      white-space:nowrap;
-    }
-    @media (max-width: 980px){
-      .title-line.nowrap{
-        white-space:normal;
-      }
-    }
-    /* =============================== */
 
     .authors{
       color:var(--muted);
@@ -402,9 +389,10 @@
       .container{
         padding:28px 14px;
       }
-      h1.paper-title{
-        font-size:clamp(20px,7.8vw,32px);
-        line-height:1.12;
+      /* 小屏标题再收一点 */
+      h1{
+        font-size:clamp(20px,7.2vw,32px);
+        line-height:1.15;
       }
       .authors{
         font-size:14px;
@@ -437,9 +425,9 @@
 <body>
   <div class="container">
     <header>
-      <h1 class="paper-title">
-        <span class="title-line nowrap">A Multimodal BiMamba Network with Test-Time Adaptation</span>
-        <span class="title-line">for Emotion Recognition Based on Physiological Signals</span>
+      <h1>
+        A Multimodal BiMamba Network with Test-Time Adaptation<br>
+        for Emotion Recognition Based on Physiological Signals
       </h1>
 
       <div class="authors">
