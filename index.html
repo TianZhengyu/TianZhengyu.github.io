@@ -9,8 +9,8 @@
 
   <style>
     :root{
-      --max-w: 1400px;        /* 整体内容区域更宽一点 */
-      --muted: #111827;       /* 非粗体文字整体加深 */
+      --max-w: 1400px;
+      --muted: #111827;
       --accent: #1f2937;
       --bg: #fff;
       --text: #111827;
@@ -28,7 +28,7 @@
     .container{
       max-width:var(--max-w);
       margin:0 auto;
-      padding:40px 12px;   /* 左右边距更小 */
+      padding:40px 12px;
       display:flex;
       flex-direction:column;
       align-items:center;
@@ -38,7 +38,6 @@
       width:100%;
     }
 
-    /* 标题两行 */
     h1{
       margin:0;
       font-weight:800;
@@ -239,14 +238,15 @@
     }
     .section-title{
       text-align:center;
-      font-size:42px;   /* ⬅ 标题字号增大 1.5 倍 */
+      font-size:42px;
       font-weight:800;
       margin:0 0 18px;
       color:var(--text);
     }
 
+    /* ⬇ 小标题调小一些 */
     .section-subtitle{
-      font-size:32px;   /* ⬅ 小标题字号增大 1.5 倍 */
+      font-size:24px;
       font-weight:800;
       margin:0 0 8px;
       color:var(--accent);
@@ -406,12 +406,11 @@
       .section--soft{
         padding:20px 10px;
       }
-      /* 小屏可以略微缩一点标题避免太挤 */
       .section-title{
         font-size:32px;
       }
       .section-subtitle{
-        font-size:24px;
+        font-size:20px;
       }
     }
   </style>
@@ -611,7 +610,7 @@
           </div>
           <div class="section-content">
             <p>
-              For experiments with missing data, Table 2 and 3 present the performance improvements of BiM-TTA and other TTA methods relative to the "No Adapt" method. "No Adapt" denotes a model trained on the source domain and subsequently evaluated on the target domain containing missing data, without any adaptation. Our method uses two-level entropy-based sample filtering to avoid the model directly adapting to samples with strong distribution shifts and limited multimodal information. Furthermore, we utilize inter-modal information sharing to align the information between different modalities, facilitating the full adaptation of the model.
+              For experiments with missing data, Table 2 and 3 present the performance improvements of BiM-TTA and other TTA methods relative to the "No Adapt" method. "No Adapt" denotes a model trained on the source domain and subsequently evaluated on the target domain containing missing data, without any adaptation. Our method uses two-level entropy-based sample filtering to avoid the model直接适配分布偏移严重且多模态信息不足的样本。Furthermore, we utilize inter-modal information sharing to align the information between different modalities, facilitating the full adaptation of the model.
             </p>
           </div>
         </div>
