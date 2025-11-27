@@ -9,8 +9,8 @@
 
   <style>
     :root{
-      --max-w: 1200px;
-      --muted: #1f2937;      /* ✅ 普通文字整体加深 */
+      --max-w: 1400px;        /* 整体内容区域更宽一点 */
+      --muted: #111827;       /* 非粗体文字整体加深 */
       --accent: #1f2937;
       --bg: #fff;
       --text: #111827;
@@ -28,7 +28,7 @@
     .container{
       max-width:var(--max-w);
       margin:0 auto;
-      padding:48px 20px;
+      padding:40px 12px;   /* 左右边距从 20 收到 12 */
       display:flex;
       flex-direction:column;
       align-items:center;
@@ -38,7 +38,7 @@
       width:100%;
     }
 
-    /* 标题：两行 */
+    /* 标题两行 */
     h1{
       margin:0;
       font-weight:800;
@@ -54,7 +54,7 @@
     }
 
     .authors{
-      color:var(--muted);   /* ✅ 作者行更深 */
+      color:var(--text);  /* 作者加深 */
       font-size:15px;
       line-height:1.5;
       margin-bottom:8px;
@@ -93,7 +93,7 @@
     }
 
     .affil{
-      color:var(--muted);    /* ✅ 单位更深 */
+      color:var(--text);  /* 单位加深 */
       font-size:14px;
       margin-top:4px;
       font-weight:500;
@@ -224,7 +224,7 @@
       padding-left:20px;
       font-size:17px;
       line-height:1.75;
-      color:var(--text);    /* ✅ 贡献点正文用主文字色 */
+      color:var(--text);
       font-weight:500;
     }
     .contrib-list li{
@@ -273,11 +273,11 @@
       margin:0 auto;
       font-size:16px;
       line-height:1.8;
-      color:var(--text);    /* ✅ 正文进一步加深 */
+      color:var(--text);   /* 正文整体加深 */
       font-weight:500;
     }
     .section--soft{
-      padding:32px 20px;
+      padding:24px 12px;   /* 左右 padding 也收窄一点 */
       border-radius:18px;
       background:#f9fafb;
     }
@@ -294,7 +294,7 @@
     .fig-caption{
       text-align:center;
       font-size:15px;
-      color:var(--text);   /* ✅ 图注加深 */
+      color:var(--text);   /* caption 颜色加深 */
       margin-top:8px;
       font-weight:500;
     }
@@ -315,7 +315,7 @@
       padding:8px 18px;
       font-size:15px;
       cursor:default;
-      color:var(--text);   /* ✅ 标签文字加深 */
+      color:var(--muted);
       white-space:nowrap;
       font-weight:600;
     }
@@ -378,7 +378,7 @@
 
     @media (max-width:640px){
       .container{
-        padding:28px 14px;
+        padding:28px 10px;
       }
       h1{
         font-size:clamp(18px,4.8vw,28px);
@@ -402,6 +402,9 @@
       }
       .contrib-list{
         font-size:16px;
+      }
+      .section--soft{
+        padding:20px 10px;
       }
     }
   </style>
@@ -484,7 +487,8 @@
 
       <div class="contrib-box">
         <div class="contrib-title">
-          Contributions
+          <span class="contrib-badge">C</span>
+          Key Contributions
         </div>
         <ol class="contrib-list">
           <li>
