@@ -239,14 +239,14 @@
     }
     .section-title{
       text-align:center;
-      font-size:28px;   /* 标题字号增大 */
+      font-size:42px;   /* ⬅ 标题字号增大 1.5 倍 */
       font-weight:800;
       margin:0 0 18px;
       color:var(--text);
     }
 
     .section-subtitle{
-      font-size:21px;   /* 小标题字号增大 */
+      font-size:32px;   /* ⬅ 小标题字号增大 1.5 倍 */
       font-weight:800;
       margin:0 0 8px;
       color:var(--accent);
@@ -405,6 +405,13 @@
       }
       .section--soft{
         padding:20px 10px;
+      }
+      /* 小屏可以略微缩一点标题避免太挤 */
+      .section-title{
+        font-size:32px;
+      }
+      .section-subtitle{
+        font-size:24px;
       }
     }
   </style>
