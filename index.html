@@ -206,18 +206,6 @@
       align-items:center;
       gap:8px;
     }
-    .contrib-badge{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:22px;
-      height:22px;
-      border-radius:999px;
-      background:#111827;
-      color:#fff;
-      font-size:12px;
-      font-weight:800;
-    }
     .contrib-list{
       margin:0;
       padding-left:20px;
@@ -244,7 +232,6 @@
       color:var(--text);
     }
 
-    /* ⬇ 小标题调小一些 */
     .section-subtitle{
       font-size:24px;
       font-weight:800;
@@ -635,8 +622,14 @@
           </div>
 
           <div class="btn-row">
-            <a class="btn btn-paper" href="#">Download English Slides (.pptx)</a>
-            <a class="btn btn-code" href="#">下载中文PPT (.pptx)</a>
+            <!-- English PPTX 下载 -->
+            <a class="btn btn-paper" href="BiM-TTA-en.pptx" download="BiM-TTA-en.pptx">
+              Download English Slides (.pptx)
+            </a>
+            <!-- 中文 PPTX 下载 -->
+            <a class="btn btn-code" href="BiM-TTA-ch.pptx" download="BiM-TTA-ch.pptx">
+              下载中文PPT (.pptx)
+            </a>
           </div>
         </div>
       </section>
