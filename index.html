@@ -613,7 +613,7 @@
           </div>
           <div class="section-content">
             <p>
-              For experiments with missing data, Table 2 and 3 present the performance improvements of BiM-TTA and other TTA methods relative to the "No Adapt" method. "No Adapt" denotes a model trained on the source domain and subsequently evaluated on the target domain containing missing data, without any adaptation. Our method uses two-level entropy-based sample filtering to avoid the model直接适配分布偏移严重且多模态信息不足的样本。Furthermore, we utilize inter-modal information sharing to align the information between different modalities, facilitating the full adaptation of the model.
+              For experiments with missing data, Table 2 and 3 present the performance improvements of BiM-TTA and other TTA methods relative to the "No Adapt" method. "No Adapt" denotes a model trained on the source domain and subsequently evaluated on the target domain containing missing data, without any adaptation. Our method uses two-level entropy-based sample filtering to prevent the model from directly adapting to samples that exhibit strong distribution shifts and contain limited multimodal information. Furthermore, we utilize inter-modal information sharing to align the information between different modalities, facilitating the full adaptation of the model.
             </p>
           </div>
         </div>
