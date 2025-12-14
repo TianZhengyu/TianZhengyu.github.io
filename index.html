@@ -301,10 +301,11 @@
     .video-tab{
       padding:8px 18px;
       font-size:15px;
-      cursor:default;
+      cursor:pointer;
       color:var(--muted);
       white-space:nowrap;
       font-weight:600;
+      user-select:none;
     }
     .video-tab.is-active{
       background:#111827;
@@ -315,12 +316,15 @@
       width:100%;
       margin:0 auto 12px;
     }
-    .video-box video{
+    .video-box iframe{
       width:100%;
+      aspect-ratio:16/9;
       border-radius:14px;
       box-shadow:0 12px 32px rgba(15,23,42,0.25);
       background:#000;
+      border:0;
     }
+
     .btn-row{
       margin-top:10px;
       display:flex;
@@ -610,15 +614,26 @@
         <h2 class="section-title">Video Presentation</h2>
         <div class="video-center">
           <div class="video-tabs">
-            <div class="video-tab is-active">English</div>
-            <div class="video-tab">中文讲解</div>
+            <div class="video-tab is-active" data-target="video-en">English</div>
+            <div class="video-tab" data-target="video-zh">中文讲解</div>
           </div>
 
-          <div class="video-box">
-            <video controls>
-              <source src="video_en.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
+          <!-- English video -->
+          <div class="video-box" id="video-en">
+            <iframe
+              src="https://player.bilibili.com/player.html?bvid=BV1xXm8BLEuU"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <!-- Chinese video -->
+          <div class="video-box" id="video-zh" style="display:none;">
+            <iframe
+              src="https://player.bilibili.com/player.html?bvid=BV11Xm8BLEkA"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
           </div>
 
           <div class="btn-row">
@@ -657,5 +672,27 @@ url={https://openreview.net/forum?id=3vLp3J7540}
     </main>
 
   </div>
+
+  <script>
+    // 简单 Tab 切换逻辑
+    const videoTabs = document.querySelectorAll('.video-tab');
+    const videoEn = document.getElementById('video-en');
+    const videoZh = document.getElementById('video-zh');
+
+    videoTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        videoTabs.forEach(t => t.classList.remove('is-active'));
+        tab.classList.add('is-active');
+
+        if (tab.dataset.target === 'video-en') {
+          videoEn.style.display = 'block';
+          videoZh.style.display = 'none';
+        } else {
+          videoEn.style.display = 'none';
+          videoZh.style.display = 'block';
+        }
+      });
+    });
+  </script>
 </body>
 </html>
