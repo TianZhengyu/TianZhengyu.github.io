@@ -530,17 +530,15 @@
           <div class="section-content">
             <h3 class="section-subtitle">1. Multimodal BiMamba Network</h3>
             <p>
-              <span class="inline-tag">Motivation &amp; Challenge</span>
-              <strong> As a typical form of time-series data, emotion-related physiological signals exhibit long-range dependencies reflecting the gradual accumulation of emotional changes.</strong>
-              Emotions such as anxiety develop progressively and require a duration for their physiological manifestations to accumulate. This accumulation indicates that emotional changes are not just an instantaneous state but a process that evolves.
-              <strong> Inter-modal correlations are also evident in the way different modalities respond.</strong>
-              For instance, increases in EEG activity during emotional arousal are often accompanied by galvanic skin response conductance peaks and decreases in electrocardiogram heart-rate variability.
-              <strong> Traditional backbone networks have limitations in modeling intra-modal long-range dependencies and inter-modal correlations.</strong>
+              <span class="inline-tag">Challenge</span>
+              <strong> As a typical form of time-series data, emotion-related physiological signals exhibit long-range dependencies reflecting the gradual accumulation of emotional changes.
+              Inter-modal correlations are also evident in the way different modalities respond.
+              Traditional backbone networks have limitations in modeling intra-modal long-range dependencies and inter-modal correlations.</strong>
             </p>
             <p>
               <span class="inline-tag">Our Approach</span>
-              Mamba’s selective input mechanism efficiently models long-range dependencies, and its explicit global state variables as part of its state space model (SSM) capture inter-modal correlations simultaneously, thereby effectively addressing the first challenge.
-              <strong> We design a multimodal BiMamba network, where the intra-modal BiMamba module models long-range dependencies within modalities, and the inter-modal BiMamba module captures inter-modal correlations.</strong>
+              <strong> Mamba’s selective input mechanism efficiently models long-range dependencies, and its explicit global state variables as part of its state space model (SSM) capture inter-modal correlations simultaneously, thereby effectively addressing the first challenge.
+              We design a multimodal BiMamba network, where the intra-modal BiMamba module models long-range dependencies within modalities, and the inter-modal BiMamba module captures inter-modal correlations.</strong>
             </p>
           </div>
         </div>
@@ -555,17 +553,16 @@
           <div class="section-content">
             <h3 class="section-subtitle">2. Test-Time Adaptation</h3>
             <p>
-              <span class="inline-tag">Motivation &amp; Challenge</span>
-              When acquiring emotion-related physiological signals, subjects must remain seated for extended periods while exposed to high-intensity stimuli to generate emotional responses.
-              <strong> However, uncontrollable factors such as perspiration, changes in posture, or the drying of the conductive gel may cause sensors to slip or experience poor contact, resulting in incomplete multimodal signal acquisition to varying degrees.</strong>
-              Such incompleteness amplifies the distribution shifts in emotion-related physiological data and ultimately leads to degraded model performance. Emotion-related physiological data also inherently exhibit distribution shifts between the training and test sets. These shifts arise from within-subject variations in emotional state, cognitive load, and environmental conditions across sessions. The unavoidable presence of missing data disrupts the original data patterns, skews feature distributions, and introduces bias, which collectively amplify the existing distribution shifts in physiological data.
+              <span class="inline-tag">Challenge</span>
+              <strong> When acquiring emotion-related physiological signals, subjects must remain seated for extended periods while exposed to high-intensity stimuli to generate emotional responses.
+              However, uncontrollable factors such as perspiration, changes in posture, or the drying of the conductive gel may cause sensors to slip or experience poor contact, resulting in incomplete multimodal signal acquisition to varying degrees.</strong>
               <strong> This amplification makes it increasingly difficult for pre-trained models to capture emotional patterns accurately.</strong>
               <strong> Existing methods mainly focus on training-phase strategies to deal with the missing data problem.</strong>
             </p>
             <p>
               <span class="inline-tag">Our Approach</span>
-              TTA requires only minimal parameter fine-tuning to mitigate distribution shifts, thus resolving the second challenge.
-              <strong> We propose a multimodal TTA method that alleviates the negative impact of amplified distribution shifts caused by missing multimodal data on model performance.</strong>
+              <strong> TTA requires only minimal parameter fine-tuning to mitigate distribution shifts, thus resolving the second challenge.
+              We propose a multimodal TTA method that alleviates the negative impact of amplified distribution shifts caused by missing multimodal data on model performance.</strong>
             </p>
           </div>
         </div>
