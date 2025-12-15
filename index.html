@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>A Multimodal BiMamba Network with Test-Time Adaptation for Emotion Recognition Based on Physiological Signals</title>
 
-  <!-- 字重包含 900，给标题等用 -->
+  <!-- Montserrat 字体，含粗体字重 -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800;900&display=swap" rel="stylesheet">
 
   <style>
@@ -265,7 +265,7 @@
       font-weight:500;
     }
 
-    /* 让 Methodology 里 Figure 和小标题之间有额外间距 */
+    /* Methodology 中 figure 和小标题之间增加间距 */
     .method-block .section-content{
       margin:20px auto 0;
     }
@@ -517,8 +517,8 @@
             Emotion recognition based on physiological signals plays a vital role in psychological health and human–computer interaction, particularly with the substantial advances in multimodal emotion recognition techniques. However, two key challenges remain unresolved: <br>
             <strong>1) how to effectively model the intra-modal long-range dependencies and inter-modal correlations in multimodal physiological emotion signals.</strong><br>
             <strong>2) how to address the performance limitations resulting from missing multimodal data.</strong><br>
-            <strong>In this paper, we propose a multimodal bidirectional Mamba (BiMamba) network with test-time adaptation (TTA) for emotion recognition named BiM-TTA</strong>. <br>
-            Specifically, BiM-TTA consists of a multimodal BiMamba network and a multimodal TTA. The former includes intra-modal and inter-modal BiMamba modules, which model long-range dependencies along the time dimension and capture cross-modal correlations along the channel dimension, respectively. The latter (TTA) mitigates the amplified distribution shifts caused by missing multimodal data through two-level entropy-based sample filtering and mutual information sharing across modalities. By addressing these challenges, <strong>BiM-TTA achieves state-of-the-art results on two multimodal emotion datasets</strong>.
+            <strong>In this paper, we propose a multimodal bidirectional Mamba (BiMamba) network with test-time adaptation (TTA) for emotion recognition named BiM-TTA.</strong><br>
+            Specifically, BiM-TTA consists of a multimodal BiMamba network and a multimodal TTA. The former includes intra-modal and inter-modal BiMamba modules, which model long-range dependencies along the time dimension and capture cross-modal correlations along the channel dimension, respectively. The latter (TTA) mitigates the amplified distribution shifts caused by missing multimodal data through two-level entropy-based sample filtering and mutual information sharing across modalities. By addressing these challenges, <strong>BiM-TTA achieves state-of-the-art results on two multimodal emotion datasets.</strong>
           </p>
         </div>
       </section>
@@ -537,14 +537,11 @@
             <h3 class="section-subtitle">1. Multimodal BiMamba Network</h3>
             <p>
               <span class="inline-tag">Challenge</span>
-              <strong> As a typical form of time-series data, emotion-related physiological signals exhibit long-range dependencies reflecting the gradual accumulation of emotional changes.
-              Inter-modal correlations are also evident in the way different modalities respond.
-              Traditional backbone networks have limitations in modeling intra-modal long-range dependencies and inter-modal correlations.</strong>
+              <strong> As a typical form of time-series data, emotion-related physiological signals exhibit long-range dependencies reflecting the gradual accumulation of emotional changes. Inter-modal correlations are also evident in the way different modalities respond. Traditional backbone networks have limitations in modeling intra-modal long-range dependencies and inter-modal correlations.</strong>
             </p>
             <p>
               <span class="inline-tag">Our Approach</span>
-              <strong> Mamba’s selective input mechanism efficiently models long-range dependencies, and its explicit global state variables as part of its state space model (SSM) capture inter-modal correlations simultaneously, thereby effectively addressing the first challenge.
-              We design a multimodal BiMamba network, where the intra-modal BiMamba module models long-range dependencies within modalities, and the inter-modal BiMamba module captures inter-modal correlations.</strong>
+              <strong> Mamba’s selective input mechanism efficiently models long-range dependencies, and its explicit global state variables as part of its state space model (SSM) capture inter-modal correlations simultaneously, thereby effectively addressing the first challenge. We design a multimodal BiMamba network, where the intra-modal BiMamba module models long-range dependencies within modalities, and the inter-modal BiMamba module captures inter-modal correlations.</strong>
             </p>
           </div>
         </div>
@@ -564,8 +561,7 @@
             </p>
             <p>
               <span class="inline-tag">Our Approach</span>
-              <strong> TTA requires only minimal parameter fine-tuning to mitigate distribution shifts, thus resolving the second challenge.
-              We propose a multimodal TTA method that alleviates the negative impact of amplified distribution shifts caused by missing multimodal data on model performance.</strong>
+              <strong> TTA requires only minimal parameter fine-tuning to mitigate distribution shifts, thus resolving the second challenge. We propose a multimodal TTA method that alleviates the negative impact of amplified distribution shifts caused by missing multimodal data on model performance.</strong>
             </p>
           </div>
         </div>
@@ -584,11 +580,6 @@
           <div class="fig-caption">
             Table 1: Comparison of emotion recognition baselines on DEAP and MAHNOB-HCI in terms of valence and arousal accuracy.
           </div>
-          <div class="section-content">
-            <p>
-              For experiments without missing data, as shown in Table 1, BiM-TTA models long-range dependencies within modalities and correlations between modalities through the intra-modal BiMamba module and inter-modal BiMamba module. It achieves the best performance on both datasets, demonstrating the superiority of the multimodal BiMamba backbone network.
-            </p>
-          </div>
         </div>
 
         <div class="method-block" style="margin-top:32px">
@@ -604,11 +595,6 @@
           <div class="fig-caption">
             Table 2 and 3: Comparative analysis of accuracy for different TTA methods on DEAP and Mahnob-HCI with missing data, relative to the baseline method "No Adapt". The No Adapt baseline corresponds to a model pretrained on the source domain and directly evaluated on the target domain without any adaptation. Results report the improvement rate of each TTA method over "No Adapt" at mask ratios of 0.2, 0.4, 0.6, and 0.8, along with the average improvement.
           </div>
-          <div class="section-content">
-            <p>
-              For experiments with missing data, Table 2 and 3 present the performance improvements of BiM-TTA and other TTA methods relative to the "No Adapt" method. "No Adapt" denotes a model trained on the source domain and subsequently evaluated on the target domain containing missing data, without any adaptation. Our method uses two-level entropy-based sample filtering to prevent the model from directly adapting to samples that exhibit strong distribution shifts and contain limited multimodal information. Furthermore, we utilize inter-modal information sharing to align the information between different modalities, facilitating the full adaptation of the model.
-            </p>
-          </div>
         </div>
       </section>
 
@@ -620,30 +606,28 @@
             <div class="video-tab" data-target="video-zh">中文讲解</div>
           </div>
 
-          <!-- English video -->
+          <!-- English video：初始不加载 src，点击后再播放 -->
           <div class="video-box" id="video-en">
             <iframe
-              src="https://player.bilibili.com/player.html?bvid=BV1xXm8BLEuU"
+              data-src="https://player.bilibili.com/player.html?bvid=BV1xXm8BLEuU&autoplay=1"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen>
             </iframe>
           </div>
 
-          <!-- Chinese video -->
+          <!-- Chinese video：同样懒加载 -->
           <div class="video-box" id="video-zh" style="display:none;">
             <iframe
-              src="https://player.bilibili.com/player.html?bvid=BV11Xm8BLEkA"
+              data-src="https://player.bilibili.com/player.html?bvid=BV11Xm8BLEkA&autoplay=1"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen>
             </iframe>
           </div>
 
           <div class="btn-row">
-            <!-- English PPTX 下载 -->
             <a class="btn btn-paper" href="BiM-TTA-en.pptx" download="BiM-TTA-en.pptx">
               Download English Slides (.pptx)
             </a>
-            <!-- 中文 PPTX 下载 -->
             <a class="btn btn-code" href="BiM-TTA-ch.pptx" download="BiM-TTA-ch.pptx">
               下载中文PPT (.pptx)
             </a>
@@ -676,10 +660,22 @@ url={https://openreview.net/forum?id=3vLp3J7540}
   </div>
 
   <script>
-    // 简单 Tab 切换逻辑
+    // Tab 切换 + 懒加载视频（点击后才真正设置 src）
     const videoTabs = document.querySelectorAll('.video-tab');
     const videoEn = document.getElementById('video-en');
     const videoZh = document.getElementById('video-zh');
+
+    function loadVideo(box) {
+      const iframe = box.querySelector('iframe');
+      if (!iframe) return;
+      if (!iframe.dataset.loaded) {
+        const src = iframe.dataset.src;
+        if (src) {
+          iframe.src = src;
+          iframe.dataset.loaded = 'true';
+        }
+      }
+    }
 
     videoTabs.forEach(tab => {
       tab.addEventListener('click', () => {
@@ -689,9 +685,11 @@ url={https://openreview.net/forum?id=3vLp3J7540}
         if (tab.dataset.target === 'video-en') {
           videoEn.style.display = 'block';
           videoZh.style.display = 'none';
+          loadVideo(videoEn);
         } else {
           videoEn.style.display = 'none';
           videoZh.style.display = 'block';
+          loadVideo(videoZh);
         }
       });
     });
