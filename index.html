@@ -5,15 +5,16 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>A Multimodal BiMamba Network with Test-Time Adaptation for Emotion Recognition Based on Physiological Signals</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+  <!-- 加上 900 粗度，给“额外加粗”用 -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800;900&display=swap" rel="stylesheet">
 
   <style>
     :root{
       --max-w: 1400px;
-      --muted: #111827;
-      --accent: #1f2937;
-      --bg: #fff;
-      --text: #111827;
+      --muted: #000000;
+      --accent: #000000;
+      --bg: #ffffff;
+      --text: #000000;
     }
     html,body{
       height:100%;
@@ -40,7 +41,7 @@
 
     h1{
       margin:0;
-      font-weight:800;
+      font-weight:900; /* 标题进一步加粗 */
       line-height:1.14;
       letter-spacing:-0.015em;
       font-size:clamp(20px,3.2vw,36px);
@@ -84,7 +85,7 @@
     .venue-tag{
       margin:4px 0 6px;
       font-size:14px;
-      font-weight:800;
+      font-weight:700;
       letter-spacing:0.22em;
       text-transform:uppercase;
       color:var(--text);
@@ -104,7 +105,7 @@
 
     .meta{
       margin-top:4px;
-      color:var(--muted);
+      color:var(--muted); /* 现在也是纯黑 */
       font-size:14px;
       font-weight:600;
     }
@@ -124,13 +125,13 @@
       padding:10px 16px;
       border-radius:999px;
       text-decoration:none;
-      font-weight:700;
+      font-weight:800; /* 按钮文字更粗一点 */
       font-size:15px;
       box-shadow:0 6px 18px rgba(15,23,42,0.06);
     }
     .btn-paper{
       background:var(--accent);
-      color:#fff;
+      color:#ffffff;
     }
     .btn-code{
       background:transparent;
@@ -197,7 +198,7 @@
     }
     .contrib-title{
       font-size:18px;
-      font-weight:800;
+      font-weight:900; /* 更粗 */
       color:var(--text);
       letter-spacing:0.08em;
       text-transform:uppercase;
@@ -218,7 +219,7 @@
       margin:8px 0;
     }
     .contrib-list strong{
-      font-weight:800;
+      font-weight:900; /* 强调文字再加粗 */
     }
 
     .section{
@@ -227,20 +228,20 @@
     .section-title{
       text-align:center;
       font-size:42px;
-      font-weight:800;
+      font-weight:900; /* 大标题更粗 */
       margin:0 0 18px;
       color:var(--text);
     }
 
     .section-subtitle{
       font-size:24px;
-      font-weight:800;
+      font-weight:900; /* 小标题加粗 */
       margin:0 0 8px;
       color:var(--accent);
       display:inline-block;
       padding:4px 12px;
       border-radius:999px;
-      background:rgba(15,23,42,0.06);
+      background:rgba(0,0,0,0.06);
     }
 
     .inline-tag{
@@ -249,7 +250,7 @@
       margin-right:6px;
       border-radius:999px;
       background:#e5e7eb;
-      color:#111827;
+      color:#000000;
       font-weight:800;
       font-size:14px;
       letter-spacing:0.02em;
@@ -308,9 +309,9 @@
       user-select:none;
     }
     .video-tab.is-active{
-      background:#111827;
-      color:#fff;
-      font-weight:800;
+      background:#000000;
+      color:#ffffff;
+      font-weight:900;
     }
     .video-box{
       width:100%;
@@ -321,7 +322,7 @@
       aspect-ratio:16/9;
       border-radius:14px;
       box-shadow:0 12px 32px rgba(15,23,42,0.25);
-      background:#000;
+      background:#000000;
       border:0;
     }
 
@@ -351,10 +352,11 @@
     .bibtex-block{
       max-width:1000px;
       margin:0 auto;
-      background:#111827;
-      color:#e5e7eb;
+      background:#ffffff;      /* 白底 */
+      color:#000000;           /* 黑字 */
       padding:18px 20px;
       border-radius:14px;
+      border:1px solid #e5e7eb;
       font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New";
       font-size:14px;
       overflow-x:auto;
@@ -363,7 +365,7 @@
     }
 
     strong{
-      font-weight:800;
+      font-weight:900;  /* 所有 strong 再加粗 */
       color:var(--text);
     }
 
@@ -469,7 +471,7 @@
           <span class="btn-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none">
               <path d="M12 3c-4.4 0-8 3.6-8 8 0 3.5 2.3 6.4 5.5 7.4-.1-.4-.1-.8-.1-1.3v-1.2c-2 .4-2.5-.9-2.5-.9-.3-.7-.8-1-0.8-1-.6-.4 0-.4 0-.4.6 0.1 1 .7 1 .7.5.9 1.4.6 1.8.4 0-.4.2-.7.3-.9-1.6-.2-3.3-.8-3.3-3.5 0-.8.3-1.4.7-1.9-.1-.2-.3-.9 0-1.8 0 0 .6-.2 2 .7.6-.2 1.3-.3 2-.3.7 0 1.4.1 2 .3 1.4-.9 2-.7 2-.7.3.9.1 1.6 0 1.8.5.5.7 1.1.7 1.9 0 2.7-1.7 3.3-3.3 3.5.2.2.3.6.3 1.1v1.6c0 .5 0 .9-.1 1.3 3.2-1.1 5.5-4 5.5-7.4 0-4.4-3.6-8-8-8z"
-                    stroke="#111827" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+                    stroke="#ffffff" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
           <span>Code</span>
