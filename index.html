@@ -306,6 +306,9 @@
       margin-bottom:18px;
     }
     .video-tab{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
       padding:8px 18px;
       font-size:15px;
       cursor:pointer;
@@ -616,8 +619,30 @@
         <h2 class="section-title">Video Presentation</h2>
         <div class="video-center">
           <div class="video-tabs">
-            <div class="video-tab is-active" data-target="video-en">English</div>
-            <div class="video-tab" data-target="video-zh">中文讲解</div>
+            <div class="video-tab is-active" data-target="video-en">
+              <span class="btn-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="9"
+                          stroke="currentColor"
+                          stroke-width="1.6" />
+                  <polygon points="10,9 16,12 10,15"
+                           fill="currentColor" />
+                </svg>
+              </span>
+              <span>English</span>
+            </div>
+            <div class="video-tab" data-target="video-zh">
+              <span class="btn-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="9"
+                          stroke="currentColor"
+                          stroke-width="1.6" />
+                  <polygon points="10,9 16,12 10,15"
+                           fill="currentColor" />
+                </svg>
+              </span>
+              <span>中文讲解</span>
+            </div>
           </div>
 
           <!-- English video：初始不加载 src，点击后再播放 -->
