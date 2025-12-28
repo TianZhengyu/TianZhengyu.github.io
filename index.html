@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>A Multimodal BiMamba Network with Test-Time Adaptation for Emotion Recognition Based on Physiological Signals</title>
 
-  <!-- Montserrat 字体，含粗体字重 -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800;900&display=swap" rel="stylesheet">
 
   <style>
@@ -143,7 +142,6 @@
       align-items:center;
       justify-content:center;
     }
-    /* 默认按钮图标尺寸（Paper / Code） */
     .btn-icon svg{
       width:16px;
       height:16px;
@@ -266,7 +264,6 @@
       font-weight:500;
     }
 
-    /* Methodology 中 figure 和小标题之间增加间距 */
     .method-block .section-content{
       margin:20px auto 0;
     }
@@ -323,7 +320,6 @@
       color:#ffffff;
       font-weight:900;
     }
-    /* 放大 Video tabs 中的播放图标 */
     .video-tabs .btn-icon svg{
       width:22px;
       height:22px;
@@ -485,7 +481,6 @@
         </a>
         <a class="btn btn-code" href="https://github.com/mikasa-s/BiM-TTA">
           <span class="btn-icon" aria-hidden="true">
-            <!-- Code 图标：< /> 风格，颜色继承文本颜色 -->
             <svg viewBox="0 0 24 24" fill="none">
               <polyline points="7 8 3 12 7 16"
                         stroke="currentColor"
@@ -629,7 +624,6 @@
             <div class="video-tab is-active" data-target="video-en">
               <span class="btn-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none">
-                  <!-- 纯三角形，尽量占满视图 -->
                   <polygon points="6,4 20,12 6,20"
                            fill="currentColor" />
                 </svg>
@@ -639,7 +633,6 @@
             <div class="video-tab" data-target="video-zh">
               <span class="btn-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none">
-                  <!-- 同样的纯三角形 -->
                   <polygon points="6,4 20,12 6,20"
                            fill="currentColor" />
                 </svg>
@@ -648,7 +641,6 @@
             </div>
           </div>
 
-          <!-- English video：初始不加载 src，点击后再播放 -->
           <div class="video-box" id="video-en">
             <iframe
               data-src="https://player.bilibili.com/player.html?bvid=BV1xXm8BLEuU&autoplay=1"
@@ -657,7 +649,6 @@
             </iframe>
           </div>
 
-          <!-- Chinese video：同样懒加载 -->
           <div class="video-box" id="video-zh" style="display:none;">
             <iframe
               data-src="https://player.bilibili.com/player.html?bvid=BV11Xm8BLEkA&autoplay=1"
@@ -702,7 +693,6 @@ url={https://openreview.net/forum?id=3vLp3J7540}
   </div>
 
   <script>
-    // Tab 切换 + 懒加载视频（点击后才真正设置 src）
     const videoTabs = document.querySelectorAll('.video-tab');
     const videoEn = document.getElementById('video-en');
     const videoZh = document.getElementById('video-zh');
